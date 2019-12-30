@@ -1,5 +1,14 @@
 #header {
-  height: 10vh;
+  min-height: 10%;
+  max-height: 15%;
   width: 100vw;
-  background-color: red;
+  background-color: #EA2328;
+  border-bottom: 1px solid black;
+  box-shadow: 0px 7px 30px black;
+  z-index: 10;
+}
+
+#header img {
+  position: relative;
+  height: 90%;
 }

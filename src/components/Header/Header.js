@@ -4,7 +4,8 @@ import './Header.css'
 const Header =(props)=> {
   return (
     <header id='header'>
-      <h3>MARVEL HEADER</h3>
+      <img src='http://comic-cons.xyz/wp-content/uploads/marvel-logo.png'
+          alt={`Marvel's Logo`}></img>
     </header>
   )
 }
