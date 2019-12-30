@@ -1,15 +1,17 @@
 import React from 'react';
 import './App.css';
-import APITest from './components'
+
+import { APITest, Header, Footer, Content } from './components'
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Hello World!!!</h1>
-
-        <APITest />
-      </header>
+      <Header />
+      <Content />
+      <Footer />
+      {/* <APITest /> */}
     </div>
   );
 }

@@ -27,7 +27,6 @@ export default class APITest extends Component {
     return (
       <div>
         APITest
-        
       </div>
     )
   }
