@@ -38,7 +38,7 @@
   color: oldlace;
   border-radius: .5vw;
   transition: transform .2s;
-  box-shadow: 0px 1px 1px black;
+  box-shadow: 0px 2px 10px black;
 }
 
 .headernav-link:hover {
