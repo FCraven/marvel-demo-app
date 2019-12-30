@@ -3,7 +3,6 @@ import './Headernav.css'
 
 const Headernav =(props)=> {
   return (
-
     <nav id='headernav'>
       <ul id='headernav-navlist'>
         <li className='headernav-link'>Characters</li>
@@ -14,7 +13,6 @@ const Headernav =(props)=> {
         <li className='headernav-link'>Creators</li>
       </ul>
     </nav>
-
   )
 }
 
