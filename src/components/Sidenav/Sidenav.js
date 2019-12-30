@@ -3,7 +3,7 @@ import './Sidenav.css'
 
 const Sidenav =(props)=> {
   return (
-    <aside>
+    <aside id='sidenav'>
       <ul>
         <li>Sidenav</li>
         <li>Sidenav</li>
