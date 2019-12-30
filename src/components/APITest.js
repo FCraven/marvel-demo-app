@@ -16,6 +16,7 @@ export default class APITest extends Component {
     try{
       const data = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&apikey=${MARVEL_API_PUBLIC_KEY}`)
       console.log(data)
+      this.setState({data})
 
     } catch (error) {
         console.log(error)
@@ -26,6 +27,7 @@ export default class APITest extends Component {
     return (
       <div>
         APITest
+        
       </div>
     )
   }
