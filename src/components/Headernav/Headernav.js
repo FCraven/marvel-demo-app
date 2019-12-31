@@ -1,48 +1,47 @@
 import React from 'react'
 import './Headernav.css'
 import HeadernavLink from './HeadernavLink'
+import {faHome} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router-dom'
 
 const Headernav =(props)=> {
   const navs = [
     {
-      to: '/characters',
+      path: '/characters',
       name: 'Characters'
     },
     {
-      to: '/comics',
+      path: '/comics',
       name: 'Comics'
     },
     {
-      to: '/events',
+      path: '/events',
       name: 'Events'
     },
     {
-      to: '/stories',
+      path: '/stories',
       name: 'Stories'
     },
     {
-      to: '/series',
+      path: '/series',
       name: 'Series'
     },
     {
-      to: '/creators',
+      path: '/creators',
       name: 'Creators'
     },
   ]
   return (
     <nav id='headernav'>
       <ul id='headernav-navlist'>
-        {navs.map(el => <HeadernavLink to={el.to} name={el.name} />)}
+        <Link to='/'>
+          <FontAwesomeIcon id='home-icon' icon={faHome} size='lg' style={{color: '#EA2328'}}/>
+        </Link>
+        {navs.map((el,idx) => <HeadernavLink key={idx} path={el.path} name={el.name} />)}
       </ul>
     </nav>
   )
 }
 
 export default Headernav;
-
-        {/* <li className='headernav-link'>Characters</li>
-        <li className='headernav-link'>Comics</li>
-        <li className='headernav-link'>Events</li>
-        <li className='headernav-link'>Stories</li>
-        <li className='headernav-link'>Series</li>
-        <li className='headernav-link'>Creators</li> */}

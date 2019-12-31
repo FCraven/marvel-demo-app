@@ -20,7 +20,7 @@ const HeadernavLink =(props)=> {
   }
 
   return (
-    <NavLink  to={props.to}
+    <NavLink  to={props.path}
               className='headernav-link'
               activeClassName={activeClass}
               activeStyle={activeStyle}>{props.name}</NavLink>
