@@ -1,7 +1,7 @@
 import React from 'react'
 import './Headernav.css'
 import HeadernavLink from './HeadernavLink'
-import {faHome} from '@fortawesome/free-solid-svg-icons'
+import { faHome } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 
@@ -35,10 +35,15 @@ const Headernav =(props)=> {
   return (
     <nav id='headernav'>
       <ul id='headernav-navlist'>
+      {/* Home Link */}
         <Link to='/'>
           <FontAwesomeIcon id='home-icon' icon={faHome} size='lg' style={{color: '#EA2328'}}/>
         </Link>
+
+      {/* NavLinks */}
         {navs.map((el,idx) => <HeadernavLink key={idx} path={el.path} name={el.name} />)}
+
+
       </ul>
     </nav>
   )
