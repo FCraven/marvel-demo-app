@@ -5,7 +5,6 @@ import Header from './Header'
 import Main from './Main'
 import Sidenav from './Sidenav'
 import Headernav from './Headernav'
-import Home from './Home'
 
 
 export {
@@ -14,7 +13,6 @@ export {
   Footer,
   Header,
   Headernav,
-  Home,
   Main,
   Sidenav
 }

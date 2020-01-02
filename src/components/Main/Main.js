@@ -1,6 +1,6 @@
 import React from 'react'
 import './Main.css'
-import { Home } from '../../components'
+import Home from './Home'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 const Main =(props)=> {

@@ -4,8 +4,17 @@
   overflow: hidden;
   background-image: url('https://i0.wp.com/www.thegeeklikes.com/wp-content/uploads/Comic-book-covers-background.gif?fit=900%2C786&ssl=1');
   background-size: cover;
-  opacity: 0.4;
+
   z-index: -1;
 }
+#home-title {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+}
 
-
+#home-text {
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2vw;
+  z-index: 5;
+}
