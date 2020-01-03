@@ -1,0 +1,6 @@
+.letter-tile {
+  height: 50%;
+  width: 50%;
+  border: 1px solid black;
+  background-color: #EA2329;
+}

@@ -1,0 +1,14 @@
+#letter-tile-container {
+  width: 100%;
+}
+
+#search-bar {
+  height:20%;
+  width: 100%;
+}
+
+#letters {
+  height: 80%;
+  width: 100%;
+  overflow: scroll;
+}

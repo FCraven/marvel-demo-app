@@ -3,10 +3,12 @@ import './CharactersByLetter.css'
 
 const CharactersByLetter =(props)=> {
   const letter = props.letter
+
+
   return (
     <section id='characters-by-letter'>
       <h1>CharactersByLetter</h1>
-      <h1>{letter}</h1>
+      
     </section>
   )
 }
