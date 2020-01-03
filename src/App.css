@@ -33,3 +33,7 @@
 .column-nowrap {
   flex-flow: column nowrap;
 }
+
+.auto {
+  overflow: auto;
+}

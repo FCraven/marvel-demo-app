@@ -1,10 +1,14 @@
 #sidenav-home {
   height: 90%;
-  width: 80%;
+  width: 90%;
   background-color: rgba(25, 25, 112, 0.548);
   font-size: 2vw;
   border: 2px solid #EA2329;
   padding: 3%;
   flex-shrink: 1;
   max-height: 80%;
+}
+
+#sidenav-home sidenav-text {
+  font-size: 1vw;
 }

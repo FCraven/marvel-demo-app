@@ -3,13 +3,17 @@ import './SidenavHome.css'
 
 const SidenavHome =(props)=> {
   return (
-    <section id='sidenav-home' className='column-nowrap flex-container-center'>
-      <h3>The</h3>
-      <h3>Marvel</h3>
-      <h3>Desk</h3>
-      <h3>Reference</h3>
+    <section id='sidenav-home' className='flex-container-center column-nowrap auto'>
+      <div id='sidenav-home-text-container' className='flex-container-center column-nowrap'>
+        <p className='sidenav-text'>The</p>
+        <p className='sidenav-text'>Marvel</p>
+        <p className='sidenav-text'>Desk</p>
+        <p className='sidenav-text'>Reference</p>
+      </div>
     </section>
   )
 }
 
 export default SidenavHome;
+
+{/* className='column-nowrap flex-container-center' */}
