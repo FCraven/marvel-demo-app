@@ -18,3 +18,11 @@
   font-size: 2vw;
   z-index: 5;
 }
+
+#home-opacity-screen {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  content: ''
+}
