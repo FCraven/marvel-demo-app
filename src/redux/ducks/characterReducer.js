@@ -1,27 +1,49 @@
+import axios from 'axios'
+import { MARVEL_API_PUBLIC_KEY } from '../../secrets'
+
 export const initialState = {
-  data:'dummyData'
+  data: []
 }
 
 //Actions
-export const LOAD_ALL_CHARACTERS = 'LOAD_ALL_CHARACTERS'
+export const LOAD_CHARACTER_BY_SEARCH = 'LOAD_CHARACTER_BY_SEARCH'
 export const LOAD_CHARACTERS_BY_LETTER = 'LOAD_CHARACTERS_BY_LETTER'
 
 
 //Action creators
-export const loadAllCharacters =()=>{
-  return { type: LOAD_ALL_CHARACTERS}
+// export const loadCharacterBySearch =(val)=> {
+//   return { type: LOAD_CHARACTER_BY_SEARCH, characters}
+// }
+
+export const loadCharactersByLetter =(characters)=> {
+  return {type: LOAD_CHARACTERS_BY_LETTER, characters}
 }
 
 
-
-
 //Thunks
+// export const getCharacterBySearch =(val)=> {
+//   return async (dispatch) => {
+//     const {data} = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&nameStartsWith=${val}&apikey=${MARVEL_API_PUBLIC_KEY}`)
+//     const characters = data.data.results
+//     dispatch(loadCharacterBySearch(characters))
+//   }
+// }
+
+// export const getCharactersByLetter =(letter)=> {
+//   return async (dispatch) => {
+//     const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${letter}`)
+//   }
+// }
 
 
-export const characterReducer =(state={}, action)=> {
+
+
+
+
+export const characterReducer =(state = initialState, action)=> {
   switch(action.type){
-    case LOAD_ALL_CHARACTERS:
-      return initialState;
+    case LOAD_CHARACTER_BY_SEARCH:
+      return initialState
     default:
       return state;
   }

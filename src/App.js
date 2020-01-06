@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 
-import { APITest, Header, Footer, Content, Headernav } from './components'
+import { Header, Footer, Content, Headernav } from './components'
 
 
 
