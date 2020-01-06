@@ -1,6 +1,6 @@
 import React from 'react'
 import './Characters.css'
-import CharactersByLetter from './CharactersByLetter'
+import APITest from '../../APITest'
 import LetterTile from './LetterTile'
 
 // TODO Change presentational component into a class component
@@ -12,6 +12,7 @@ const Characters =(props)=> {
   return (
     <section id='characters'>
       <section id='search-bar'>
+        <APITest />
         <h3 className>Characters</h3>
         <div id='character-search'>
           <form>
@@ -21,6 +22,9 @@ const Characters =(props)=> {
         </div>
       </section>
       <section id='letters'>
+
+      {/* USE CSS GRID */}
+
         <h3>Browse Characters</h3>
         <div id='letter-tile-container' className='flex-container row-wrap'>
           {letters.map(el => <LetterTile letter={el} />)}

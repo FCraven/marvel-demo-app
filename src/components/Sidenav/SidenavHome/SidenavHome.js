@@ -15,5 +15,3 @@ const SidenavHome =(props)=> {
 }
 
 export default SidenavHome;
-
-{/* className='column-nowrap flex-container-center' */}

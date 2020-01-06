@@ -1,10 +1,14 @@
-import {createStore, applyMiddleware} from 'redux'
-import reducer from './reducer'
+import {combineReducers, createStore, applyMiddleware,} from 'redux'
+import { characterReducer } from './ducks'
 import thunkMiddleware from 'redux-thunk'
 import {createLogger} from 'redux-logger'
 
 const store = createStore(
-  reducer,
+  combineReducers(
+    {
+      characters: characterReducer
+    }
+  ),
   applyMiddleware(
     thunkMiddleware,
     createLogger()

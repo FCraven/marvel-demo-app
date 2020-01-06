@@ -7,7 +7,7 @@ export default class APITest extends Component {
     super(props)
 
     this.state = {
-
+      data: null
     }
   }
 
