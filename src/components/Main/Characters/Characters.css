@@ -8,6 +8,10 @@
   width: 50%;
 }
 
+.characters {
+	position: relative;
+	width: 100%;
+}
 
 /*.letter-select-css */
 .letter-select-css {
@@ -99,8 +103,9 @@
 /* character-tile-container */
 
 .character-tile-container {
-  position: relative;
-  display: flex;
+  position: absolute;
+	display: flex;
+	flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   overflow-y: scroll;

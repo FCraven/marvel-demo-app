@@ -2,5 +2,5 @@
   display: flex;
   flex-flow: row nowrap;
   height: 70vh;
- 
+  width: 100%;
 }

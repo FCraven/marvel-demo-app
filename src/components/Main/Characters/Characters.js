@@ -122,11 +122,7 @@ export default class Characters extends Component {
 
           <section id='character-tile-container'>
             {characters ?
-              characters.map(el => <CharacterTile key={el.id}
-                                                  id={el.id}
-                                                  name={el.name}
-                                                  imgPath={el.thumbnail.path}
-                                                  imgExt={el.thumbnail.extension}/>)
+              characters.map(el => <CharacterTile key={el.id} id={el.id} name={el.name} imgPath={el.thumbnail.path} imgExt={el.thumbnail.extension}/>)
 
             : <div>Loading...</div>}
           </section>
@@ -134,4 +130,3 @@ export default class Characters extends Component {
     )
   }
 }
-
