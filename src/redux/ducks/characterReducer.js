@@ -15,7 +15,7 @@ export const LOAD_CHARACTERS_BY_LETTER = 'LOAD_CHARACTERS_BY_LETTER'
 //   return { type: LOAD_CHARACTER_BY_SEARCH, characters}
 // }
 
-export const loadCharactersByLetter =(characters)=> {
+export const gotCharactersByLetter =(characters)=> {
   return {type: LOAD_CHARACTERS_BY_LETTER, characters}
 }
 

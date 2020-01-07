@@ -2,36 +2,87 @@ import React, { Component } from 'react'
 import './Characters.css'
 import APITest from '../../APITest'
 import LetterTile from './LetterTile'
-import { render } from '@testing-library/react'
+import axios from 'axios'
+import { MARVEL_API_PUBLIC_KEY } from '../../../secrets'
 
-
-// TODO Change presentational component into a class component
 export default class Characters extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
        letterSelect: 'a',
-       characterSearch: ''
+       characterSearch: '',
+       characters: [],
+       searchedCharacters: []
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.fetchByLetter = this.fetchByLetter.bind(this)
   }
 
-  // async componentDidMount() {
-  //   this.props.loadCharacters(this.state.letterSelect)
-  // }
+  async componentDidMount() {
+    try {
+      const letter = this.state.letterSelect
+      const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&nameStartsWith=${letter}&apikey=${MARVEL_API_PUBLIC_KEY}`)
+      console.log(data.data.results)
+      this.setState({
+        characters: data.data.results
+      })
+
+    } catch(err) {
+      console.log(err)
+    }
+  }
 
   async handleChange(evt) {
-    await this.setState({
-      [evt.target.name]: evt.target.value
-    })
-    console.log(`STATE----->`,this.state)
+    const name = evt.target.name;
+    const value = evt.target.value;
+    const searchVal = this.state.characterSearch
+
+    await this.setState({[name]: value})
+
+    if(name ==='letterSelect') {
+      await this.fetchByLetter(this.state.letterSelect)
+    }
   }
 
-  handleSubmit(evt) {
+  async handleSubmit(evt) {
     evt.preventDefault()
-    
+    const searchVal = this.state.characterSearch
+    try{
+      const { data } =  await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&nameStartsWith=${searchVal}&apikey=${MARVEL_API_PUBLIC_KEY}`)
+      this.setState({
+        searchedCharacters: data.data.results
+      })
+      console.log(`SEARCHED ---->`, this.state.searchedCharacters)
+    } catch(err) {
+      console.log(err)
+    }
+
+  }
+
+  async fetchByLetter(letter) {
+    try{
+      const { data } =  await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&nameStartsWith=${letter}&apikey=${MARVEL_API_PUBLIC_KEY}`)
+      const { results } = data.data
+      this.setState({
+        characters: results
+      })
+    } catch (err) {
+        console.log(err)
+    }
+  }
+
+  async characterSearch(searchVal) {
+    try{
+      const { data } =  await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&nameStartsWith=${searchVal}&apikey=${MARVEL_API_PUBLIC_KEY}`)
+      this.setState({
+        searchedCharacters: data.data.results
+      })
+
+    } catch(err) {
+      console.log(err)
+    }
   }
 
   render() {
@@ -40,35 +91,41 @@ export default class Characters extends Component {
     return (
       <section id='characters'>
         <section id='search-bar'>
-          <APITest />
-          <h3>Characters</h3>
+          {/* <APITest /> */}
           <div id='character-search'>
-
-
-
-
             <form onSubmit={this.handleSubmit}>
-              <label htmlFor='letter-select'>Letter Select </label>
-                <select type='select'
+
+              <label  htmlFor='characterSearch'
+                      className='form-label'></label>
+                <span id='search-submit-container'>
+                <input  className='character-search-css'
+                        placeholder='Starts with...'
+                        type='text'
+                        name='characterSearch'
+                        value={this.state.characterSearch}
+                        onChange={this.handleChange} />
+                <button type='submit'
+                        className='form-submit-btn'
+                        >Submit</button>
+                </span>
+
+
+               <label htmlFor='letter-select'
+                      className='form-label'></label>
+                <select className='letter-select-css'
+                        type='select'
                         name='letterSelect'
                         onChange={this.handleChange}>
                   {letters.map(el => <option key={el} name='letterSelect' value={el}>{el.toUpperCase()}</option>)}
                 </select>
-
-              <br/>
-              <label htmlFor='characterSearch'>Character Search</label>
-                <input  type='text'
-                        name='characterSearch'
-                        value={this.state.characterSearch}
-                        onChange={this.handleChange}/>
-
             </form>
           </div>
         </section>
+
         <section id='letters'>
 
         {/* USE CSS GRID */}
-
+        {/* CHANGE TO CHARACTER TILES */}
           <h3>Browse Characters</h3>
           <div id='letter-tile-container' className='flex-container row-wrap'>
             {letters.map(el => <LetterTile key={el} letter={el} />)}
