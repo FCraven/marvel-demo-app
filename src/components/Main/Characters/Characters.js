@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './Characters.css'
-import APITest from '../../APITest'
-import LetterTile from './LetterTile'
+import CharacterTile from './CharacterTile'
 import axios from 'axios'
 import { MARVEL_API_PUBLIC_KEY } from '../../../secrets'
 
@@ -12,8 +11,7 @@ export default class Characters extends Component {
     this.state = {
        letterSelect: 'a',
        characterSearch: '',
-       characters: [],
-       searchedCharacters: []
+       characters: []
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -38,9 +36,7 @@ export default class Characters extends Component {
     const name = evt.target.name;
     const value = evt.target.value;
     const searchVal = this.state.characterSearch
-
     await this.setState({[name]: value})
-
     if(name ==='letterSelect') {
       await this.fetchByLetter(this.state.letterSelect)
     }
@@ -52,9 +48,9 @@ export default class Characters extends Component {
     try{
       const { data } =  await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&nameStartsWith=${searchVal}&apikey=${MARVEL_API_PUBLIC_KEY}`)
       this.setState({
-        searchedCharacters: data.data.results
+        characters: data.data.results
       })
-      console.log(`SEARCHED ---->`, this.state.searchedCharacters)
+      console.log(`SEARCHED ---->`, this.state.characters)
     } catch(err) {
       console.log(err)
     }
@@ -77,7 +73,7 @@ export default class Characters extends Component {
     try{
       const { data } =  await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&nameStartsWith=${searchVal}&apikey=${MARVEL_API_PUBLIC_KEY}`)
       this.setState({
-        searchedCharacters: data.data.results
+        characters: data.data.results
       })
 
     } catch(err) {
@@ -88,10 +84,12 @@ export default class Characters extends Component {
   render() {
     const letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
+    const characters = this.state.characters
+
     return (
       <section id='characters'>
         <section id='search-bar'>
-          {/* <APITest /> */}
+
           <div id='character-search'>
             <form onSubmit={this.handleSubmit}>
 
@@ -122,15 +120,16 @@ export default class Characters extends Component {
           </div>
         </section>
 
-        <section id='letters'>
+          <section id='character-tile-container'>
+            {characters ?
+              characters.map(el => <CharacterTile key={el.id}
+                                                  id={el.id}
+                                                  name={el.name}
+                                                  imgPath={el.thumbnail.path}
+                                                  imgExt={el.thumbnail.extension}/>)
 
-        {/* USE CSS GRID */}
-        {/* CHANGE TO CHARACTER TILES */}
-          <h3>Browse Characters</h3>
-          <div id='letter-tile-container' className='flex-container row-wrap'>
-            {letters.map(el => <LetterTile key={el} letter={el} />)}
-          </div>
-        </section>
+            : <div>Loading...</div>}
+          </section>
       </section>
     )
   }

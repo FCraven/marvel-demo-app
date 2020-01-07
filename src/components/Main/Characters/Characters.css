@@ -94,3 +94,16 @@
 .character-search-css option {
 	font-weight:normal;
 }
+
+
+/* character-tile-container */
+
+.character-tile-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+}
