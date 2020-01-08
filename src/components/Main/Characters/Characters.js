@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import './Characters.css'
+import { connect } from 'react-redux'
 import CharacterTile from './CharacterTile'
 import axios from 'axios'
 import { MARVEL_API_PUBLIC_KEY } from '../../../secrets'
+import { gotInitialCharactersByLetter,fetchInitialCharactersByLetter } from './../../../redux/ducks/characterReducer'
 
-export default class Characters extends Component {
+
+class Characters extends Component {
   constructor(props) {
     super(props)
 
@@ -20,13 +23,7 @@ export default class Characters extends Component {
 
   async componentDidMount() {
     try {
-      const letter = this.state.letterSelect
-      const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&nameStartsWith=${letter}&apikey=${MARVEL_API_PUBLIC_KEY}`)
-      console.log(data.data.results)
-      this.setState({
-        characters: data.data.results
-      })
-
+      this.props.fetchInitialCharactersByLetter()
     } catch(err) {
       console.log(err)
     }
@@ -84,7 +81,7 @@ export default class Characters extends Component {
   render() {
     const letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
-    const characters = this.state.characters
+    const {selectedLetter, characterSearch, characters, isLoading} = this.props
 
     return (
       <section id='characters'>
@@ -130,3 +127,17 @@ export default class Characters extends Component {
     )
   }
 }
+
+const mapStateToProps =(state)=> {
+  return {
+    ...state.characters
+  }
+}
+
+
+const mapDispatchToProps = {
+  fetchInitialCharactersByLetter,
+  gotInitialCharactersByLetter
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Characters)
