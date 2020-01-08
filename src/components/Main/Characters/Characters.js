@@ -4,7 +4,11 @@ import { connect } from 'react-redux'
 import CharacterTile from './CharacterTile'
 import axios from 'axios'
 import { MARVEL_API_PUBLIC_KEY } from '../../../secrets'
-import { gotInitialCharactersByLetter,fetchInitialCharactersByLetter } from './../../../redux/ducks/characterReducer'
+import {
+        fetchInitialCharactersByLetter,
+        fetchCharactersByLetter,
+        fetchCharactersBySearch
+         } from './../../../redux/ducks/characterReducer'
 
 
 class Characters extends Component {
@@ -12,13 +16,11 @@ class Characters extends Component {
     super(props)
 
     this.state = {
-       letterSelect: 'a',
-       characterSearch: '',
-       characters: []
+       selectedLetter: 'a',
+       characterSearch: ''
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.fetchByLetter = this.fetchByLetter.bind(this)
   }
 
   async componentDidMount() {
@@ -32,10 +34,9 @@ class Characters extends Component {
   async handleChange(evt) {
     const name = evt.target.name;
     const value = evt.target.value;
-    const searchVal = this.state.characterSearch
     await this.setState({[name]: value})
-    if(name ==='letterSelect') {
-      await this.fetchByLetter(this.state.letterSelect)
+    if(name ==='selectedLetter') {
+      await this.props.fetchCharactersByLetter(this.state.selectedLetter)
     }
   }
 
@@ -43,45 +44,17 @@ class Characters extends Component {
     evt.preventDefault()
     const searchVal = this.state.characterSearch
     try{
-      const { data } =  await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&nameStartsWith=${searchVal}&apikey=${MARVEL_API_PUBLIC_KEY}`)
-      this.setState({
-        characters: data.data.results
-      })
-      console.log(`SEARCHED ---->`, this.state.characters)
+      await this.props.fetchCharactersBySearch(searchVal)
     } catch(err) {
       console.log(err)
     }
 
-  }
-
-  async fetchByLetter(letter) {
-    try{
-      const { data } =  await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&nameStartsWith=${letter}&apikey=${MARVEL_API_PUBLIC_KEY}`)
-      const { results } = data.data
-      this.setState({
-        characters: results
-      })
-    } catch (err) {
-        console.log(err)
-    }
-  }
-
-  async characterSearch(searchVal) {
-    try{
-      const { data } =  await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&nameStartsWith=${searchVal}&apikey=${MARVEL_API_PUBLIC_KEY}`)
-      this.setState({
-        characters: data.data.results
-      })
-
-    } catch(err) {
-      console.log(err)
-    }
   }
 
   render() {
     const letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
-    const {selectedLetter, characterSearch, characters, isLoading} = this.props
+    const { characters } = this.props
 
     return (
       <section id='characters'>
@@ -94,7 +67,7 @@ class Characters extends Component {
                       className='form-label'></label>
                 <span id='search-submit-container'>
                 <input  className='character-search-css'
-                        placeholder='Starts with...'
+                        placeholder='Search...'
                         type='text'
                         name='characterSearch'
                         value={this.state.characterSearch}
@@ -109,17 +82,21 @@ class Characters extends Component {
                       className='form-label'></label>
                 <select className='letter-select-css'
                         type='select'
-                        name='letterSelect'
+                        name='selectedLetter'
                         onChange={this.handleChange}>
-                  {letters.map(el => <option key={el} name='letterSelect' value={el}>{el.toUpperCase()}</option>)}
+                  {letters.map(el => <option key={el} value={el}>{el.toUpperCase()}</option>)}
                 </select>
             </form>
           </div>
         </section>
 
           <section id='character-tile-container'>
-            {characters ?
-              characters.map(el => <CharacterTile key={el.id} id={el.id} name={el.name} imgPath={el.thumbnail.path} imgExt={el.thumbnail.extension}/>)
+            {characters.length > 0 ?
+              characters.map(el => <CharacterTile key={el.id}
+                                                  id={el.id}
+                                                  name={el.name}
+                                                  imgPath={el.thumbnail.path}
+                                                  imgExt={el.thumbnail.extension}/>)
 
             : <div>Loading...</div>}
           </section>
@@ -134,10 +111,10 @@ const mapStateToProps =(state)=> {
   }
 }
 
-
 const mapDispatchToProps = {
   fetchInitialCharactersByLetter,
-  gotInitialCharactersByLetter
+  fetchCharactersByLetter,
+  fetchCharactersBySearch
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Characters)
