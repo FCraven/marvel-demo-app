@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import './Characters.css'
 import { connect } from 'react-redux'
+import Loading from '../../Loading'
 import CharacterTile from './CharacterTile'
 import axios from 'axios'
 import { MARVEL_API_PUBLIC_KEY } from '../../../secrets'
 import {
         fetchInitialCharactersByLetter,
         fetchCharactersByLetter,
-        fetchCharactersBySearch
+        fetchCharactersBySearch,
+        toggleLoading
          } from './../../../redux/ducks/characterReducer'
 
 
@@ -53,8 +55,8 @@ class Characters extends Component {
 
   render() {
     const letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-
-    const { characters } = this.props
+    console.log(`PRROPPPPPPPPPPS--->`,this.props)
+    const { characters, isLoading } = this.props
 
     return (
       <section id='characters'>
@@ -91,14 +93,14 @@ class Characters extends Component {
         </section>
 
           <section id='character-tile-container'>
-            {characters.length > 0 ?
+            {!isLoading && characters.length > 0 ?
               characters.map(el => <CharacterTile key={el.id}
                                                   id={el.id}
                                                   name={el.name}
                                                   imgPath={el.thumbnail.path}
                                                   imgExt={el.thumbnail.extension}/>)
 
-            : <div>Loading...</div>}
+            : <Loading />}
           </section>
       </section>
     )
@@ -114,7 +116,8 @@ const mapStateToProps =(state)=> {
 const mapDispatchToProps = {
   fetchInitialCharactersByLetter,
   fetchCharactersByLetter,
-  fetchCharactersBySearch
+  fetchCharactersBySearch,
+  toggleLoading
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Characters)
