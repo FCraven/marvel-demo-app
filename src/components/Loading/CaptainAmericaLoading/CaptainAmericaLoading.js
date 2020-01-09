@@ -1,7 +1,7 @@
 import React from 'react'
-import './Loading.css'
+import './CaptainAmericaLoading.css'
 
-const Loading =()=> {
+const CaptainAmericaLoading =()=> {
   return (
     <div class="loading-container">
       <div class="circle outer-lv3">
@@ -19,4 +19,4 @@ const Loading =()=> {
   )
 }
 
-export default Loading
+export default CaptainAmericaLoading

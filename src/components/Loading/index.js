@@ -1,3 +1,7 @@
-import Loading from './Loading'
+import CaptainAmericaLoading from './CaptainAmericaLoading'
+import IronManLoading from './IronManLoading'
 
-export default Loading;
+export {
+  CaptainAmericaLoading,
+  IronManLoading
+};

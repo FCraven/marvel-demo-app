@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Characters.css'
 import { connect } from 'react-redux'
-import Loading from '../../Loading'
+import { CaptainAmericaLoading, IronManLoading } from './../../Loading'
 import CharacterTile from './CharacterTile'
 import axios from 'axios'
 import { MARVEL_API_PUBLIC_KEY } from '../../../secrets'
@@ -57,6 +57,17 @@ class Characters extends Component {
     const letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     console.log(`PRROPPPPPPPPPPS--->`,this.props)
     const { characters, isLoading } = this.props
+    const loadingCharacterArr= ['CaptainAmerica', 'IronMan']
+    const loadingCharacter = loadingCharacterArr[Math.floor(Math.random()*loadingCharacterArr.length)]
+    const loading =(char)=> {
+      switch(char){
+        case 'CaptainAmerica':
+          return <CaptainAmericaLoading />
+        case 'IronMan':
+          return <IronManLoading />
+      }
+    }
+
 
     return (
       <section id='characters'>
@@ -100,7 +111,8 @@ class Characters extends Component {
                                                   imgPath={el.thumbnail.path}
                                                   imgExt={el.thumbnail.extension}/>)
 
-            : <Loading />}
+            : loading(loadingCharacter)
+            }
           </section>
       </section>
     )
