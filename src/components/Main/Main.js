@@ -4,6 +4,8 @@ import Home from './Home'
 import Characters from './Characters'
 import { Switch, Route } from 'react-router-dom'
 
+
+
 const Main =(props)=> {
   return (
     <section id='main'>

@@ -1,108 +1,24 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './Characters.css'
 import { connect } from 'react-redux'
 import { CaptainAmericaLoading, IronManLoading } from './../../Loading'
 import CharacterTile from './CharacterTile'
-import axios from 'axios'
-import { MARVEL_API_PUBLIC_KEY } from '../../../secrets'
-import {
-        fetchInitialCharactersByLetter,
-        fetchCharactersByLetter,
-        fetchCharactersBySearch,
-        toggleLoading
-         } from './../../../redux/ducks/characterReducer'
 
-
-class Characters extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-       selectedLetter: 'a',
-       characterSearch: ''
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  async componentDidMount() {
-    try {
-      this.props.fetchInitialCharactersByLetter()
-    } catch(err) {
-      console.log(err)
-    }
-  }
-
-  async handleChange(evt) {
-    const name = evt.target.name;
-    const value = evt.target.value;
-    await this.setState({[name]: value})
-    if(name ==='selectedLetter') {
-      await this.props.fetchCharactersByLetter(this.state.selectedLetter)
-    }
-  }
-
-  async handleSubmit(evt) {
-    evt.preventDefault()
-    const searchVal = this.state.characterSearch
-    try{
-      await this.props.fetchCharactersBySearch(searchVal)
-    } catch(err) {
-      console.log(err)
-    }
-
-  }
-
-  render() {
-    const letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-    console.log(`PRROPPPPPPPPPPS--->`,this.props)
-    const { characters, isLoading } = this.props
-    const loadingCharacterArr= ['CaptainAmerica', 'IronMan']
-    const loadingCharacter = loadingCharacterArr[Math.floor(Math.random()*loadingCharacterArr.length)]
-    const loading =(char)=> {
-      switch(char){
-        case 'CaptainAmerica':
-          return <CaptainAmericaLoading />
+const Characters =(props)=> {
+  const charArr= ['CaptainAmerica', 'IronMan']
+  const loadingCharacter = charArr[Math.floor(Math.random()*charArr.length)]
+  const loading =(char)=> {
+    switch(char){
+      case 'CaptainAmerica':
+        return <CaptainAmericaLoading />
         case 'IronMan':
           return <IronManLoading />
+        }
       }
-    }
-
+  const { characters, isLoading } = props
 
     return (
       <section id='characters'>
-        <section id='search-bar'>
-
-          <div id='character-search'>
-            <form onSubmit={this.handleSubmit}>
-
-              <label  htmlFor='characterSearch'
-                      className='form-label'></label>
-                <span id='search-submit-container'>
-                <input  className='character-search-css'
-                        placeholder='Search...'
-                        type='text'
-                        name='characterSearch'
-                        value={this.state.characterSearch}
-                        onChange={this.handleChange} />
-                <button type='submit'
-                        className='form-submit-btn'
-                        >Submit</button>
-                </span>
-
-
-               <label htmlFor='letter-select'
-                      className='form-label'></label>
-                <select className='letter-select-css'
-                        type='select'
-                        name='selectedLetter'
-                        onChange={this.handleChange}>
-                  {letters.map(el => <option key={el} value={el}>{el.toUpperCase()}</option>)}
-                </select>
-            </form>
-          </div>
-        </section>
-
           <section id='character-tile-container'>
             {!isLoading && characters.length > 0 ?
               characters.map(el => <CharacterTile key={el.id}
@@ -117,7 +33,6 @@ class Characters extends Component {
       </section>
     )
   }
-}
 
 const mapStateToProps =(state)=> {
   return {
@@ -125,11 +40,4 @@ const mapStateToProps =(state)=> {
   }
 }
 
-const mapDispatchToProps = {
-  fetchInitialCharactersByLetter,
-  fetchCharactersByLetter,
-  fetchCharactersBySearch,
-  toggleLoading
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(Characters)
+export default connect(mapStateToProps,null)(Characters)
