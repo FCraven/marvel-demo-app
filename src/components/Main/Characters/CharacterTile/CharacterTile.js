@@ -8,10 +8,10 @@ const CharacterTile =(props)=> {
   const {id,imgPath,imgExt,name, fetchCharacterInfo} = props
   const imgVariant = 'standard_medium'
   const imgCall = `${imgPath}/${imgVariant}.${imgExt}`
+  {/* onClick={fetchCharacterInfo(id)} <---This is the big test */}
 
   return (
     <Link to={`/characters/${id}`}
-          {/* onClick={fetchCharacterInfo(id)} <---This is the big test */}
           >
       <div className="character-tile">
         <img  src={imgCall}
