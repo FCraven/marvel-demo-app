@@ -6,17 +6,18 @@ import CharacterTile from './CharacterTile'
 
 const Characters =(props)=> {
   const charArr= ['CaptainAmerica', 'IronMan']
-  const loadingCharacter = charArr[Math.floor(Math.random()*charArr.length)]
+  const loadingCharacter = charArr[Math.floor(Math.random() * charArr.length)]
+  const { characters, isLoading } = props
   const loading =(char)=> {
-    switch(char){
+    switch(char) {
       case 'CaptainAmerica':
         return <CaptainAmericaLoading />
-        case 'IronMan':
+      case 'IronMan':
           return <IronManLoading />
-        }
-      }
-  const { characters, isLoading } = props
-
+      default:
+        return <CaptainAmericaLoading />
+    }
+  }
     return (
       <section id='characters'>
           <section id='character-tile-container'>
@@ -36,7 +37,8 @@ const Characters =(props)=> {
 
 const mapStateToProps =(state)=> {
   return {
-    ...state.characters
+    ...state.characters,
+    ...state.settings
   }
 }
 

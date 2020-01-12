@@ -12,10 +12,10 @@ export default class APITest extends Component {
   }
 
   async componentDidMount() {
-    const val = 'w'
+
     try{
-      const data =  await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&nameStartsWith=${val}&apikey=${MARVEL_API_PUBLIC_KEY}`)
-      console.log(data)
+      const data =  await axios.get(`https://gateway.marvel.com:443/v1/public/characters/1009718?apikey=${MARVEL_API_PUBLIC_KEY}`)
+      console.log(`APITest ------>`,data)
       this.setState({data})
 
     } catch (error) {

@@ -3,14 +3,14 @@ import './CaptainAmericaLoading.css'
 
 const CaptainAmericaLoading =()=> {
   return (
-    <div class="loading-container">
-      <div class="circle outer-lv3">
-        <div class="circle outer-lv2">
-          <div class="circle outer-lv1">
-            <div class="center">
-              <div class="arrow top"></div>
-              <div class="arrow left"></div>
-              <div class="arrow right"></div>
+    <div className="loading-container">
+      <div className="circle outer-lv3">
+        <div className="circle outer-lv2">
+          <div className="circle outer-lv1">
+            <div className="center">
+              <div className="arrow top"></div>
+              <div className="arrow left"></div>
+              <div className="arrow right"></div>
             </div>
           </div>
         </div>

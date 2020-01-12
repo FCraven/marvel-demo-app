@@ -4,9 +4,10 @@ import { connect } from 'react-redux'
 import {
   fetchInitialCharactersByLetter,
   fetchCharactersByLetter,
-  fetchCharactersBySearch,
-  toggleLoading
+  fetchCharactersBySearch
    } from '../../../redux/ducks/characterReducer'
+
+import { toggleLoading } from '../../../redux/ducks/settingsReducer'
 
 class CharacterSearchBar extends Component {
   constructor(props) {
@@ -51,36 +52,40 @@ class CharacterSearchBar extends Component {
     return (
       //search bar
       <section id='search-bar'>
-              <form id='character-search-form'
-                    onSubmit={this.handleSubmit}>
-              <section id='search-by-input'>
-                <label  htmlFor='characterSearch'
-                        className='form-label'></label>
-                  <div id='search-submit-container'>
-                  <input  className='character-search-input'
-                          placeholder='Search...'
-                          type='text'
-                          name='characterSearch'
-                          value={this.state.characterSearch}
-                          onChange={this.handleChange} />
-                  <button type='submit'
-                          className='form-submit-btn'
-                          >Submit</button>
-                  </div>
-                </section>
+          <form id='character-search-form'
+                onSubmit={this.handleSubmit}>
+            <section id='search-by-input'>
+              <label  htmlFor='characterSearch'
+                      className='form-label'>
+                      Search</label>
+              <div id='character-search-container'>
+                <input  className='character-search-input'
+                        placeholder='Search...'
+                        type='text'
+                        name='characterSearch'
+                        value={this.state.characterSearch}
+                        onChange={this.handleChange} />
+                <button type='submit'
+                        className='form-submit-btn'
+                        >Submit</button>
+              </div>
+            </section>
 
               <section id='search-by-letter'>
                 <label htmlFor='letter-select'
-                        className='form-label'></label>
+                        className='form-label'>
+                        Browse</label>
+                <div>
                   <select className='letter-select-css'
                           type='select'
                           name='selectedLetter'
                           onChange={this.handleChange}>
                     {letters.map(el => <option  key={el} value={el}>{el.toUpperCase()}</option>)}
                   </select>
-                  </section>
-              </form>
+                </div>
+              </section>
 
+            </form>
           </section>
     )}
 }

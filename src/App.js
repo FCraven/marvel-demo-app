@@ -3,7 +3,7 @@ import './App.css';
 
 
 import { Header, Footer, Content, Headernav } from './components'
-
+// import APITest from './components/APITest'
 
 
 function App() {
@@ -11,9 +11,9 @@ function App() {
     <div className="App">
       <Header />
       <Headernav />
+      {/* <APITest /> */}
       <Content />
       <Footer />
-      {/* <APITest /> */}
     </div>
   );
 }
