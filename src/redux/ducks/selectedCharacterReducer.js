@@ -2,6 +2,7 @@
 import axios from 'axios'
 import { MARVEL_API_PUBLIC_KEY } from '../../secrets'
 import { toggleLoading } from './settingsReducer'
+import { push } from 'connected-react-router'
 
 //initalState
 export const initialState = {
@@ -46,7 +47,8 @@ export const fetchCharacterInfo =(id)=> {
       dispatch(toggleLoading())
       const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=${MARVEL_API_PUBLIC_KEY}`)
       const info = data.data.results[0];
-      await dispatch(gotCharacterInfo(info))
+      dispatch(gotCharacterInfo(info))
+      dispatch(push(`/characters/${id}`))
       dispatch(toggleLoading())
     } catch(err) {
         console.log(err)
