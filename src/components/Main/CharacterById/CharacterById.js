@@ -1,29 +1,44 @@
 import React from 'react'
 import './CharacterById.css'
 import { connect } from 'react-redux'
-import { fetchCharacterInfo } from '../../../redux/ducks/selectedCharacterReducer'
 
 
 const CharacterById =(props)=> {
-  const characterId = props.match.params.id
-  // props.fetchCharacterInfo(characterId)
-  console.log(`Prrrrrrropppppppps-->`, props)
 
+  const { id, name, description, thumbnail, resourceURI, comics, series, stories, events, urls, isLoading } = props
+
+  const {path, extension} = thumbnail
+  const backgroundImgVariant = 'landscape_incredible'
+  const imgCall = `${path}/${backgroundImgVariant}.${extension}`
+  const style = {
+    backgroundImage: `url('${imgCall}')`,
+    backgroundSize: '100% 100%',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'left',
+
+  }
+
+  console.log(`characterById Props--->`, props)
   return (
-      <h1>HelloWorld from Character By Id</h1>
+
+      <section id="character-by-id-container" style={style}>
+       <div id='by-id-opacity-layer'>
+        
+       </div>
+      </section>
   )
 }
 
-const mapStateToProps =(state)=> {
+const mapState =(state)=> {
+  console.log(`sTATE TO MAP TO PROPS ___>`,state)
   return {
-    ...state
+    ...state.selectedCharacter,
+    ...state.settings
   }
 }
 
-const mapDispatchToProps = {
-  fetchCharacterInfo
-}
 
-export default connect(mapStateToProps,mapDispatchToProps)(CharacterById)
+
+export default connect(mapState,null)(CharacterById)
 
 

@@ -1,18 +1,18 @@
 import React from 'react'
 import './CharacterTile.css'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { fetchCharacterInfo } from '../../../../redux/ducks/selectedCharacterReducer'
+import { connect } from 'react-redux'
+import { fetchCharacterInfo } from './../../../../redux/ducks/selectedCharacterReducer'
+
 
 const CharacterTile =(props)=> {
-  const {id,imgPath,imgExt,name, fetchCharacterInfo} = props
+  const {id,imgPath,imgExt,name} = props
   const imgVariant = 'standard_medium'
   const imgCall = `${imgPath}/${imgVariant}.${imgExt}`
-  {/* onClick={fetchCharacterInfo(id)} <---This is the big test */}
-
   return (
     <Link to={`/characters/${id}`}
-          >
+          onClick={()=> props.fetchCharacterInfo(id)}
+    >
       <div className="character-tile">
         <img  src={imgCall}
               alt="Avatar"
@@ -28,5 +28,6 @@ const CharacterTile =(props)=> {
 const mapDispatch = {
   fetchCharacterInfo
 }
+
 
 export default connect(null,mapDispatch)(CharacterTile)

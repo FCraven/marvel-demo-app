@@ -41,7 +41,7 @@ export const gotCharactersBySearch =(characters)=> {
 export const fetchInitialCharactersByLetter =()=> {
   return async(dispatch, getState) => {
     const state = getState()
-    const {selectedLetter} = state.characters
+    const { selectedLetter } = state.characters
     try{
       dispatch(toggleLoading())
       const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&nameStartsWith=${selectedLetter}&apikey=${MARVEL_API_PUBLIC_KEY}`)

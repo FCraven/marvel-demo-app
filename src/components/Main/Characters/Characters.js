@@ -5,9 +5,9 @@ import { CaptainAmericaLoading, IronManLoading } from './../../Loading'
 import CharacterTile from './CharacterTile'
 
 const Characters =(props)=> {
+  const { characters, isLoading } = props
   const charArr= ['CaptainAmerica', 'IronMan']
   const loadingCharacter = charArr[Math.floor(Math.random() * charArr.length)]
-  const { characters, isLoading } = props
   const loading =(char)=> {
     switch(char) {
       case 'CaptainAmerica':
