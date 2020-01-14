@@ -1,0 +1,19 @@
+#sidenav-by-id-container{
+  display: flex;
+  justify-content: center;
+  align-items: space-evenly;
+  align-content: space-around;
+  overflow: auto;
+  flex-flow: column nowrap;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+#by-id-info {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  color: white
+}

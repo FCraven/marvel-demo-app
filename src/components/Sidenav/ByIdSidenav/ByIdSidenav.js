@@ -3,21 +3,26 @@ import './ByIdSidenav.css'
 import { connect } from 'react-redux'
 
 const ByIdSidenav =(props)=> {
-  console.log(props)
+  console.log(`BYIDSIDENAV PROPS---->`, props)
+
+  const {path, extension} = props.thumbnail
+  const imgVariant = 'standard_xlarge'
+  const imgCall = `${path}/${imgVariant}.${extension}`
   return (
-    <div>
-    <h1>Picture</h1>
-    <p>Description</p>
-    </div>
+    <section id='sidenav-by-id-container'>
+        <img src={imgCall}></img>
+        <h1>{props.name}</h1>
+        <div>
+          <p>{props.description}</p>
+        </div>
+    </section>
   )
 }
 
-const mapStateToProps =(state)=> {
+const mapState =(state)=> {
   return {
-    ...state
+    ...state.selectedCharacter
   }
 }
 
-const mapDispatchToProps = {}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ByIdSidenav);
+export default connect(mapState, null)(ByIdSidenav);

@@ -1,5 +1,6 @@
 #character-by-id-container {
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   height: 90%;

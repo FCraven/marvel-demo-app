@@ -1,40 +1,43 @@
+.character-tile-container {
+  display: flex;
+  width: 27.5%;
+
+}
 .character-tile {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  width: 40%;
-  overflow: scroll;
+  flex-flow: column wrap;
+  width: 100%;
+  overflow: auto;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  margin: 1%;
+  margin: 1vw;
   color: rgba(255, 255, 255, 0.993);
 }
 
-.character-tile-img {
-  position: relative;
-  padding: 3%;
-  flex-shrink: 1;
-  border-radius: 1em;
-  height: 100%;
 
+.character-tile-img {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
 }
 
 .character-tile-text {
   position: relative;
   display: flex;
-  flex-direction: flex-end;
-  flex-flow: row wrap;
-  overflow: auto;
-  width: 50%;
   justify-content: center;
-  align-items: center;
-  padding: 1%;
-  flex-shrink:2;
+  align-items: stretch;
+  flex-flow: column wrap;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.4);
-
+  font-size: 1.75vw;
 }
 /* On mouse-over, add a deeper shadow */
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+.character-tile:hover {
+  box-shadow: 0px 8px 16px 0 rgba(226, 41, 41, 0.781);
 }
 

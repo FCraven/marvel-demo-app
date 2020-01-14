@@ -7,19 +7,19 @@ import { fetchCharacterInfo } from './../../../../redux/ducks/selectedCharacterR
 
 const CharacterTile =(props)=> {
   const {id,imgPath,imgExt,name} = props
-  const imgVariant = 'standard_medium'
+  const imgVariant = 'portrait_fantastic'
   const imgCall = `${imgPath}/${imgVariant}.${imgExt}`
   return (
     <Link to={`/characters/${id}`}
           onClick={()=> props.fetchCharacterInfo(id)}
-    >
+          className='character-tile-container'>
       <div className="character-tile">
-        <img  src={imgCall}
-              alt="Avatar"
-              className='character-tile-img'/>
-        <div className="character-tile-text">
-          <h4><b>{name}</b></h4>
-        </div>
+          <img  src={imgCall}
+                alt="Avatar"
+                className='character-tile-img'/>
+          <div className="character-tile-text">
+            <h4><b>{name}</b></h4>
+          </div>
       </div>
     </Link>
   )
