@@ -22,8 +22,11 @@ const CharacterById =(props)=> {
       <section id="character-by-id-container" style={style}>
        <div id='by-id-opacity-layer'>
         <div id='by-id-info'>
-         <div className='by-id-info-section'>Comics
-          {comics && comics.map(el=> el.name)}
+          <div>
+            <h3 id='by-id-comics-title'                         className='by-id-info-section'>Comics</h3>
+            <div id='by-id-comics-content'>
+              {comics && comics.map(el=> el.name)}
+            </div>
          </div>
          <div className='by-id-info-section'>Series</div>
          <div className='by-id-info-section'>Stories</div>

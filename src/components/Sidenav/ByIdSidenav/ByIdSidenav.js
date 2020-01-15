@@ -8,12 +8,13 @@ const ByIdSidenav =(props)=> {
   const {path, extension} = props.thumbnail
   const imgVariant = 'standard_xlarge'
   const imgCall = `${path}/${imgVariant}.${extension}`
+
   return (
-    <section id='sidenav-by-id-container'>
-        <img src={imgCall}></img>
-        <h1>{props.name}</h1>
-        <div>
-          <p>{props.description}</p>
+    <section id='by-id-sidenav-container'>
+        <img id='by-id-sidenav-img' src={imgCall}></img>
+        <div id='by-id-sidenav-text-container'>
+          <h3 id='by-id-sidenav-title'>{props.name}</h3>
+          <p id='by-id-sidenav-text'>{props.description}</p>
         </div>
     </section>
   )

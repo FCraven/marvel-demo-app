@@ -1,8 +1,7 @@
-#sidenav-by-id-container{
+#by-id-sidenav-container{
   display: flex;
   justify-content: center;
-  align-items: space-evenly;
-  align-content: space-around;
+  align-items: center;
   overflow: auto;
   flex-flow: column nowrap;
   position: relative;
@@ -16,4 +15,25 @@
   justify-content: flex-start;
   align-items: center;
   color: white
+}
+
+#by-id-sidenav-img {
+  width: 80%;
+  box-shadow: 0px 0px 40px 0px black;
+  border: 1px solid grey
+}
+
+#by-id-sidenav-text-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5% 10%;
+}
+
+
+#by-id-sidenav-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
