@@ -7,6 +7,8 @@
   position: relative;
   height: 100%;
   width: 100%;
+  padding-top: 1em;
+  overflow: auto;
 }
 
 #by-id-info {
@@ -14,13 +16,15 @@
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: center;
-  color: white
+  color: white;
 }
 
 #by-id-sidenav-img {
-  width: 80%;
+  display: flex;
+  position: sticky;
+  max-width: 80%;
+  height: auto;
   box-shadow: 0px 0px 40px 0px black;
-  border: 1px solid grey
 }
 
 #by-id-sidenav-text-container {
@@ -28,9 +32,7 @@
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  margin: 5% 10%;
 }
-
 
 #by-id-sidenav-text {
   display: flex;
