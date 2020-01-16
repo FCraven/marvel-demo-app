@@ -77,16 +77,18 @@ export const fetchCharacterComics =()=> {
     });
     //START HERE AND ATTEMPT A FOR EACH TO FIGURE THIS OUT
     const results = comicIds.map(async(el) => {
-       const {data} =  await axios.get(`https://gateway.marvel.com:443/v1/public/comics/${el}?apikey=${MARVEL_API_PUBLIC_KEY}`)
-       const { results } = data.data
-        return results[0];
+      const {data} =  await axios.get(`https://gateway.marvel.com:443/v1/public/comics/${el}?apikey=${MARVEL_API_PUBLIC_KEY}`)
+      const { results } = data.data
+      return [...results]
     })
+
     const resolvedResults =async()=> {
       return Promise.all(results)
     }
 
+    console.log(`resolved promise results? --->`, resolvedResults())
     //HERE IS THE BROKEN CODE ^^^ and use promis.all above to reolve the array of promises and return usable values
-    console.log(`resolved promise results? --->`, resolvedResults)
+    //https://flaviocopes.com/javascript-async-await-array-map/
     // dispatch(gotCharacterComics(results))
     } catch (err) {
         console.log(err)
