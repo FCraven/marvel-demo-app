@@ -4,6 +4,7 @@ import { MARVEL_API_PUBLIC_KEY } from '../../secrets'
 import { toggleLoading } from './settingsReducer'
 
 
+
 //initalState
 export const initialState = {
   id: 0,
@@ -65,31 +66,15 @@ export const fetchCharacterInfo =(id)=> {
   }
 }
 
-export const fetchCharacterComics =()=> {
-  return async(dispatch, getState) => {
+export const fetchCharacterComics =(id)=> {
+  return async(dispatch) => {
     try {
-    const state = getState()
-    const comics = state.selectedCharacter.comics.items || []
-    const comicIds = comics.map((el,idx) => {
-      const splitURI = el.resourceURI.split('/')
-      const id = parseInt(splitURI[splitURI.length-1])
-      return id
-    });
-    //START HERE AND ATTEMPT A FOR EACH TO FIGURE THIS OUT
-    const results = comicIds.map(async(el) => {
-      const {data} =  await axios.get(`https://gateway.marvel.com:443/v1/public/comics/${el}?apikey=${MARVEL_API_PUBLIC_KEY}`)
-      const { results } = data.data
-      return [...results]
-    })
-
-    const resolvedResults =async()=> {
-      return Promise.all(results)
-    }
-
-    console.log(`resolved promise results? --->`, resolvedResults())
-    //HERE IS THE BROKEN CODE ^^^ and use promis.all above to reolve the array of promises and return usable values
-    //https://flaviocopes.com/javascript-async-await-array-map/
-    // dispatch(gotCharacterComics(results))
+      dispatch(toggleLoading())
+      const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}/comics?apikey=${MARVEL_API_PUBLIC_KEY}`)
+      const results = data.data
+      const comicsArr = results.results;
+      dispatch(gotCharacterComics(comicsArr))
+      dispatch(toggleLoading())
     } catch (err) {
         console.log(err)
     }
@@ -109,7 +94,7 @@ const selectedCharacterReducer =(state = initialState, action) => {
       })
     case GOT_CHARACTER_COMICS:
       const comics = action.comics
-      console.log(`COMICS===D`, comics)
+      console.log(`COMICS===>`, comics)
       return Object.assign({},state, {
         selectedComics: [...action.comics]
       })
