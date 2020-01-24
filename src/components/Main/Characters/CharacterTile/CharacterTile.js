@@ -2,7 +2,12 @@ import React from 'react'
 import './CharacterTile.css'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { fetchCharacterInfo, fetchCharacterComics } from './../../../../redux/ducks/selectedCharacterReducer'
+import { fetchCharacterInfo,
+        fetchCharacterComics,
+        fetchCharacterSeries,
+        fetchCharacterStories,
+        fetchCharacterEvents }
+        from './../../../../redux/ducks/selectedCharacterReducer'
 
 
 const CharacterTile =(props)=> {
@@ -11,8 +16,13 @@ const CharacterTile =(props)=> {
   const imgCall = `${imgPath}/${imgVariant}.${imgExt}`
   return (
     <Link to={`/characters/${id}`}
-          onClick={ ()=> props.fetchCharacterInfo(id),
-                    ()=> props.fetchCharacterComics(id)}
+          onClick={ ()=> {
+            props.fetchCharacterInfo(id);
+            props.fetchCharacterComics(id);
+            props.fetchCharacterSeries(id);
+            props.fetchCharacterStories(id);
+            props.fetchCharacterEvents(id)
+            }}
           className='character-tile-container'>
       <div className="character-tile">
           <img  src={imgCall}
@@ -28,7 +38,10 @@ const CharacterTile =(props)=> {
 
 const mapDispatch = {
   fetchCharacterInfo,
-  fetchCharacterComics
+  fetchCharacterComics,
+  fetchCharacterSeries,
+  fetchCharacterStories,
+  fetchCharacterEvents
 }
 
 
