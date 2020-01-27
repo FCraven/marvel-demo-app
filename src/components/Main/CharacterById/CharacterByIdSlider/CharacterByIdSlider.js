@@ -2,7 +2,7 @@ import './CharacterByIdSlider.css'
 import React from 'react'
 
 
-const CharacterByIdSlider =(component, info)=> {
+const CharacterByIdSlider =(props)=> {
   return (
     <div>
       Hello World from the HOC SLIDER

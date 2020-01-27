@@ -14,7 +14,26 @@
 #by-id-opacity-layer {
   height: 100%;
   width: 100%;
-  display: flex;
+  display: block;
   background-color: black;
   background: radial-gradient(circle, rgba(0,0,0,0.4192051820728291) 0%, rgba(0,0,0,0.7525385154061625) 43%, rgba(0,0,0,0.9037990196078431) 90%, rgba(0,0,0,0.9430147058823529) 100%);
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+
+
+#by-id-comics {
+  display: flex;
+  flex-flow: row nowrap;
+  overflow-y: auto;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: white;
+  font-size: .5em;
+
+}
+
+.comic-tile {
+  padding: 1%;
 }

@@ -2,13 +2,10 @@ import React from 'react'
 import './CharacterById.css'
 import { connect } from 'react-redux'
 
-import CharacterByIdSlider from './CharacterByIdSlider'
-// import ComicTile from './ComicTile'
-
-
-
 const CharacterById =(props)=> {
-  const comics = props.selectedComics || []
+  const comics = props.selectedComics || [];
+  const events = props.selectedEvents || [];
+  console.log(`comics--->  `, comics)
   const { path, extension } = props.thumbnail
   const backgroundImgVariant = 'landscape_incredible'
   const imgCall = `${path}/${backgroundImgVariant}.${extension}`
@@ -18,28 +15,41 @@ const CharacterById =(props)=> {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
   }
-console.log(`PROPS FROM CHARBYID----->`, props)
+
+  const comicsMap = comics.map((el,idx) => {
+    return (
+      <div className='comic-tile'>
+          <img src={`${el.thumbnail.path}/portrait_medium.${el.thumbnail.extension}`}/>
+          <h3>{el.title}</h3>
+      </div>
+    )
+  })
+
+  const eventsMap = events.map((el,idx) => {
+    console.log(`EVENTS---> `, events)
+    return (
+      <div>Oy</div>
+    )
+  })
+
   return (
       <section id="character-by-id-container" style={style}>
        <div id='by-id-opacity-layer'>
-          <div id='by-id-info'>
+          <h3 style={{color: 'white', }}>Comics</h3>
           <section id='by-id-comics'>
-            <h3 id='by-id-comics-title' className='by-id-info-section'>Comics</h3>
-            <div id='by-id-comics-content'>
-              <CharacterByIdSlider />
-            </div>
+            {comicsMap}
           </section>
-          <div className='by-id-info-section'>Series</div>
-          <section id='by-id-series'>
-            <h3 id='by-id-series-title' className='by-id-info-section'>Series</h3>
-            <div id='by-id-series-content'>
-              <CharacterByIdSlider />
-            </div>
+          <hr/>
+          <h3 style={{color: 'white'}}>Events</h3>
+          <section id='by-id-events'>
+          {comicsMap}
+
           </section>
-          <div className='by-id-info-section'>Stories</div>
-          <div className='by-id-info-section'>Events</div>
+
+
+
+
         </div>
-       </div>
       </section>
   )
 }
