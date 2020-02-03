@@ -1,3 +1,4 @@
+
 #character-by-id-container {
   display: flex;
   position: relative;
@@ -21,8 +22,6 @@
   overflow-y: auto;
 }
 
-
-
 #by-id-comics {
   display: flex;
   flex-flow: row nowrap;
@@ -30,10 +29,10 @@
   align-items: flex-start;
   justify-content: flex-start;
   color: white;
-  font-size: .5em;
-
 }
 
 .comic-tile {
-  padding: 1%;
+  padding: 3%;
+  min-width: 10%;
+  height: auto;
 }

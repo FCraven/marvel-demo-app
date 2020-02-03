@@ -1,8 +1,9 @@
 .character-tile-container {
   display: flex;
-  width: 27.5%;
-
+  width: 15%;
+  height: auto;
 }
+
 .character-tile {
   display: flex;
   justify-content: center;
@@ -29,12 +30,14 @@
 .character-tile-text {
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  /* flex-flow: column wrap; */
   width: 100%;
+  height: auto;
   background-color: rgba(0, 0, 0, 0.4);
-  font-size: 1.75vw;
+  font-size: .1em;
 }
 /* On mouse-over, add a deeper shadow */
 .character-tile:hover {
