@@ -22,20 +22,29 @@
   overflow-y: auto;
 }
 
-#by-id-comics {
+/* #by-id-comics {
   display: flex;
   flex-flow: row nowrap;
   overflow-y: auto;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   color: white;
-}
+} */
 
 .comic-tile {
   padding: 1.5%;
-  min-width: 10%;
+  min-width: 15%;
+  max-width: 30%;
   height: auto;
   box-shadow: inset 0em 1em 2em rgba(128, 128, 128, 0.5);
   border-radius: 1em;
   margin: 1%;
 }
+
+.comic-tile:hover {
+  transform: scale(1.05);
+  transform: translate(0px, -5px);
+  box-shadow: 0px 3px 5px 3px rgba(234, 36, 39, 0.657);
+  transition: transform .2s;
+}
+

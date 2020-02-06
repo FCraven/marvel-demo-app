@@ -7,6 +7,7 @@ const CharacterById =(props)=> {
   const comics = props.selectedComics || [];
   const events = props.selectedEvents || [];
   const series = props.selectedSeries || [];
+  const{ id } = props
   const { path, extension } = props.thumbnail
   const backgroundImgVariant = 'landscape_incredible'
   const imgCall = `${path}/${backgroundImgVariant}.${extension}`
@@ -19,12 +20,11 @@ const CharacterById =(props)=> {
 
   const comicsMap = comics.map((el,idx) => {
     return (
-
       <Link to={`/comics/${el.id}`}
-            className='comic-tile text-decoration-none'>
+            className='comic-tile text-decoration-none row-wrap'>
           <img  src={`${el.thumbnail.path}/portrait_medium.${el.thumbnail.extension}`}
                 className='responsive-image'/>
-          <h3>{el.title}</h3>
+          <h3 className='row-wrap'>{el.title}</h3>
       </Link>
     )
   })
@@ -33,7 +33,7 @@ const CharacterById =(props)=> {
         //create Navlink to  /events/:id
     return (
       <Link to={`/events/${el.id}`}
-            className='comic-tile text-decoration-none'>
+            className='comic-tile text-decoration-none row-wrap'>
           <img src={`${el.thumbnail.path}/portrait_medium.${el.thumbnail.extension}`}
               className='responsive-image'/>
           <h3>{el.title}</h3>
@@ -45,7 +45,7 @@ const CharacterById =(props)=> {
     //create Navlink to series /series/:id
     return (
        <Link to={`/series/${el.id}`}
-            className='comic-tile text-decoration-none'>
+            className='comic-tile text-decoration-none row-wrap'>
           <img src={`${el.thumbnail.path}/portrait_medium.${el.thumbnail.extension}`}
               className='responsive-image' />
           <h3>{el.title}</h3>
@@ -58,20 +58,23 @@ const CharacterById =(props)=> {
   return (
       <section id="character-by-id-container" style={style}>
        <div id='by-id-opacity-layer'>
-          {events.length > 0  && <h3>Events</h3>}
+          {events.length > 0  && <h5>Events</h5>}
           <section id='by-id-events' className='flex justify-start align-start row-nowrap overflow-auto half-em'>
           {eventsMap}
           </section>
+          {events.length > 0 && <Link to={`/characters/${id}/events`}>See All...</Link>}
           {events.length > 0 && <hr/>}
-          {series.length > 0 && <h3>Series</h3>}
+          {series.length > 0 && <h5>Series</h5>}
           <section id='by-id-series' className='flex justify-start align-start row-nowrap overflow-auto half-em'>
           {seriesMap}
           </section>
+          {series.length > 0 && <Link to={`/characters/${id}/series`}>See All...</Link>}
           {series.length > 0 && <hr/>}
-          {comics.length > 0 && <h3>Comics</h3>}
+          {comics.length > 0 && <h5>Comics</h5>}
           <section id='by-id-comics' className='flex justify-start align-start row-nowrap overflow-auto half-em'>
             {comicsMap}
           </section>
+          {comics.length > 0 && <Link to={`/characters/${id}/comics`}>See All...</Link>}
         </div>
       </section>
   )
