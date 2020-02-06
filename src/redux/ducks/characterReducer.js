@@ -1,11 +1,12 @@
 import axios from 'axios'
-import { MARVEL_API_PUBLIC_KEY } from '../../secrets'
+// import { MARVEL_API_PUBLIC_KEY } from '../../secrets'
 import { toggleLoading } from './settingsReducer'
 export const initialState = {
   selectedLetter: 'a',
   characterSearch: '',
   characters: [],
 }
+const MARVEL_API_PUBLIC_KEY = process.env.MARVEL_API_PUBLIC_KEY
 
 //Actions
 export const FETCH_INITIAL_CHARACTERS_BY_LETTER = 'FETCH_INITIAL_CHARACTERS_BY_LETTER'
@@ -44,7 +45,7 @@ export const fetchInitialCharactersByLetter =()=> {
     const { selectedLetter } = state.characters
     try{
       dispatch(toggleLoading())
-      const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&nameStartsWith=${selectedLetter}&apikey=${process.env.MARVEL_API_PUBLIC_KEY || MARVEL_API_PUBLIC_KEY}`)
+      const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&nameStartsWith=${selectedLetter}&apikey=${MARVEL_API_PUBLIC_KEY}`)
       const characters = data.data.results
       dispatch(gotInitialCharactersByLetter(characters))
       dispatch(toggleLoading())
