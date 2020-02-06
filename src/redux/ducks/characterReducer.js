@@ -1,7 +1,6 @@
 import axios from 'axios'
-// import { MARVEL_API_PUBLIC_KEY } from '../../secrets'
+import { MARVEL_API_PUBLIC_KEY } from '../../secrets'
 import { toggleLoading } from './settingsReducer'
-import { MARVEL_API_PUBLIC_KEY } from './../../../keys'
 export const initialState = {
   selectedLetter: 'a',
   characterSearch: '',
