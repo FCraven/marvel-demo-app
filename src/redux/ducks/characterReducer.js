@@ -7,6 +7,8 @@ export const initialState = {
   characters: [],
 }
 const MARVEL_API_PUBLIC_KEY = process.env.MARVEL_API_PUBLIC_KEY
+console.log(`PROCESS.ENV-->`,process.env)
+
 
 //Actions
 export const FETCH_INITIAL_CHARACTERS_BY_LETTER = 'FETCH_INITIAL_CHARACTERS_BY_LETTER'
