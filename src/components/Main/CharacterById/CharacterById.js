@@ -58,19 +58,19 @@ const CharacterById =(props)=> {
   return (
       <section id="character-by-id-container" style={style}>
        <div id='by-id-opacity-layer'>
-          {events.length > 0  && <h5>Events</h5>}
+          {events.length > 0  && <h4>Events</h4>}
           <section id='by-id-events' className='flex justify-start align-start row-nowrap overflow-auto half-em'>
           {eventsMap}
           </section>
           {events.length > 0 && <Link to={`/characters/${id}/events`}>See All...</Link>}
           {events.length > 0 && <hr/>}
-          {series.length > 0 && <h5>Series</h5>}
+          {series.length > 0 && <h4>Series</h4>}
           <section id='by-id-series' className='flex justify-start align-start row-nowrap overflow-auto half-em'>
           {seriesMap}
           </section>
           {series.length > 0 && <Link to={`/characters/${id}/series`}>See All...</Link>}
           {series.length > 0 && <hr/>}
-          {comics.length > 0 && <h5>Comics</h5>}
+          {comics.length > 0 && <h4>Comics</h4>}
           <section id='by-id-comics' className='flex justify-start align-start row-nowrap overflow-auto half-em'>
             {comicsMap}
           </section>
