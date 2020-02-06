@@ -13,9 +13,22 @@ code {
     monospace;
 }
 
+a {
+  color: white;
+}
+
+hr {
+  width: 80%;
+}
+
 .half-em {
   font-size: 0.5em;
 }
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+}
+
 .flex {
   display: flex;
 }
@@ -44,6 +57,14 @@ code {
   flex-flow: row wrap;
 }
 
-.scroll {
+.overflow-scroll {
   overflow: scroll;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.text-decoration-none {
+  text-decoration: none;
 }

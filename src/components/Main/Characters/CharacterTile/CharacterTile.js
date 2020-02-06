@@ -6,8 +6,10 @@ import { fetchCharacterInfo,
         fetchCharacterComics,
         fetchCharacterSeries,
         fetchCharacterStories,
-        fetchCharacterEvents }
+        fetchCharacterEvents,
+         }
         from './../../../../redux/ducks/selectedCharacterReducer'
+import { toggleLoading } from './../../../../redux/ducks/settingsReducer'
 
 
 const CharacterTile =(props)=> {
@@ -17,11 +19,13 @@ const CharacterTile =(props)=> {
   return (
     <Link to={`/characters/${id}`}
           onClick={ ()=> {
+            props.toggleLoading()
             props.fetchCharacterInfo(id);
             props.fetchCharacterComics(id);
             props.fetchCharacterSeries(id);
             props.fetchCharacterStories(id);
             props.fetchCharacterEvents(id)
+            props.toggleLoading()
             }}
           className='character-tile-container'>
       <div className="character-tile">
@@ -41,7 +45,8 @@ const mapDispatch = {
   fetchCharacterComics,
   fetchCharacterSeries,
   fetchCharacterStories,
-  fetchCharacterEvents
+  fetchCharacterEvents,
+  toggleLoading
 }
 
 

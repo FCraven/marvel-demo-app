@@ -1,6 +1,7 @@
 import React from 'react'
 import './CharacterById.css'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const CharacterById =(props)=> {
   const comics = props.selectedComics || [];
@@ -16,39 +17,39 @@ const CharacterById =(props)=> {
     backgroundPosition: 'center',
   }
 
-  //create a ahigher order componenent that takes in word and returns
-  // a slider that maps out the data from each pass of the array of sections
-  //title
-  // mapState to selected{pART}
-  //tile => require js var
-
-  {/* <Slider type={el} /> */}
-
-
   const comicsMap = comics.map((el,idx) => {
     return (
-      <div className='comic-tile'>
-          <img  src={`${el.thumbnail.path}/portrait_medium.${el.thumbnail.extension}`}/>
+
+      <Link to={`/comics/${el.id}`}
+            className='comic-tile text-decoration-none'>
+          <img  src={`${el.thumbnail.path}/portrait_medium.${el.thumbnail.extension}`}
+                className='responsive-image'/>
           <h3>{el.title}</h3>
-      </div>
+      </Link>
     )
   })
 
   const eventsMap = events.map((el,idx) => {
+        //create Navlink to  /events/:id
     return (
-      <div className='comic-tile'>
-          <img src={`${el.thumbnail.path}/portrait_medium.${el.thumbnail.extension}`}/>
+      <Link to={`/events/${el.id}`}
+            className='comic-tile text-decoration-none'>
+          <img src={`${el.thumbnail.path}/portrait_medium.${el.thumbnail.extension}`}
+              className='responsive-image'/>
           <h3>{el.title}</h3>
-      </div>
+      </Link>
     )
   })
 
   const seriesMap = series.map((el,idx) => {
+    //create Navlink to series /series/:id
     return (
-      <div className='comic-tile'>
-          <img src={`${el.thumbnail.path}/portrait_medium.${el.thumbnail.extension}`}/>
+       <Link to={`/series/${el.id}`}
+            className='comic-tile text-decoration-none'>
+          <img src={`${el.thumbnail.path}/portrait_medium.${el.thumbnail.extension}`}
+              className='responsive-image' />
           <h3>{el.title}</h3>
-      </div>
+      </Link>
     )
   })
 
@@ -57,18 +58,18 @@ const CharacterById =(props)=> {
   return (
       <section id="character-by-id-container" style={style}>
        <div id='by-id-opacity-layer'>
-          <h3>Events</h3>
-          <section id='by-id-events' className='flex justify-start align-start row scroll half-em'>
-          {eventsMap || 'No events for this character'}
+          {events.length > 0  && <h3>Events</h3>}
+          <section id='by-id-events' className='flex justify-start align-start row-nowrap overflow-auto half-em'>
+          {eventsMap}
           </section>
-          <hr/>
-          <h3>Series</h3>
-          <section id='by-id-series' className='flex justify-start align-start row-nowrap scroll half-em'>
-          {seriesMap || 'No series available for this character'}
+          {events.length > 0 && <hr/>}
+          {series.length > 0 && <h3>Series</h3>}
+          <section id='by-id-series' className='flex justify-start align-start row-nowrap overflow-auto half-em'>
+          {seriesMap}
           </section>
-          <hr/>
-          <h3>Comics</h3>
-          <section id='by-id-comics' className='flex justify-start align-start row-nowrap scroll half-em'>
+          {series.length > 0 && <hr/>}
+          {comics.length > 0 && <h3>Comics</h3>}
+          <section id='by-id-comics' className='flex justify-start align-start row-nowrap overflow-auto half-em'>
             {comicsMap}
           </section>
         </div>

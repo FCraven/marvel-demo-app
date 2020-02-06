@@ -32,7 +32,10 @@
 }
 
 .comic-tile {
-  padding: 3%;
+  padding: 1.5%;
   min-width: 10%;
   height: auto;
+  box-shadow: inset 0em 1em 2em rgba(128, 128, 128, 0.5);
+  border-radius: 1em;
+  margin: 1%;
 }
