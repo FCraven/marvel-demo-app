@@ -2,7 +2,7 @@
 import axios from 'axios'
 // import { MARVEL_API_PUBLIC_KEY } from '../../secrets'
 import { toggleLoading } from './settingsReducer'
-const MARVEL_API_PUBLIC_KEY = process.env.MARVEL_API_PUBLIC_KEY
+import { MARVEL_API_PUBLIC_KEY } from './../../../keys'
 
 
 //initalState

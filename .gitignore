@@ -24,3 +24,5 @@ yarn-error.log*
 
 secrets.js
 /src/secrets.js
+
+.env
