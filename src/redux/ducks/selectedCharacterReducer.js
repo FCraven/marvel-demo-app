@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { toggleLoading } from './settingsReducer'
-import CryptoJS from 'crypto-js'
+import MD5 from 'crypto-js/md5'
 
 export const MARVEL_API_PRIVATE_KEY = process.env.REACT_APP_MARVEL_API_PRIVATE_KEY
 export const MARVEL_API_PUBLIC_KEY = process.env.REACT_APP_MARVEL_API_PUBLIC_KEY
 export const ts = Date.now()
-export const hash = CryptoJS.MD5(ts+MARVEL_API_PRIVATE_KEY+MARVEL_API_PUBLIC_KEY).toString()
+export const hash = MD5(ts+MARVEL_API_PRIVATE_KEY+MARVEL_API_PUBLIC_KEY).toString()
 
 
 
