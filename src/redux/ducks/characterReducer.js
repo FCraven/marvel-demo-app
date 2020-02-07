@@ -12,7 +12,6 @@ export const initialState = {
   characterSearch: '',
   characters: [],
 }
-const MARVEL_API_PUBLIC_KEY = process.env.MARVEL_API_PUBLIC_KEY
 
 //Actions
 export const FETCH_INITIAL_CHARACTERS_BY_LETTER = 'FETCH_INITIAL_CHARACTERS_BY_LETTER'
