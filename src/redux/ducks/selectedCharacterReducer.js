@@ -117,7 +117,7 @@ export const fetchCharacterComics =(id)=>{
 export const fetchCharacterSeries =(id)=> {
   return async(dispatch)=> {
     try {
-      const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}/series?apikey=${MARVEL_API_PUBLIC_KEY}`)
+      const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}/series?ts=${ts}&apikey=${MARVEL_API_PUBLIC_KEY}&hash=${hash}`)
       const results = data.data
       const seriesArr = results.results;
       dispatch(gotCharacterSeries(seriesArr))
@@ -130,7 +130,7 @@ export const fetchCharacterSeries =(id)=> {
 export const fetchCharacterStories =(id)=> {
   return async(dispatch)=> {
     try {
-      const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}/stories?apikey=${MARVEL_API_PUBLIC_KEY}`)
+      const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}/stories?ts=${ts}&apikey=${MARVEL_API_PUBLIC_KEY}&hash=${hash}`)
       const results = data.data
       const storiesArr = results.results;
       dispatch(gotCharacterStories(storiesArr))
@@ -143,7 +143,7 @@ export const fetchCharacterStories =(id)=> {
 export const fetchCharacterEvents =(id)=> {
   return async(dispatch)=> {
     try {
-      const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}/events?apikey=${MARVEL_API_PUBLIC_KEY}`)
+      const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}/events?ts=${ts}&apikey=${MARVEL_API_PUBLIC_KEY}&hash=${hash}`)
       const results = data.data
       const eventsArr = results.results;
       dispatch(gotCharacterEvents(eventsArr))
