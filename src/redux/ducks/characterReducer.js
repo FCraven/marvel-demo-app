@@ -53,7 +53,7 @@ export const fetchInitialCharactersByLetter =()=> {
     const { selectedLetter } = state.characters
     try{
       dispatch(toggleLoading())
-      const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?ts=${ts}7apikey=${MARVEL_API_PUBLIC_KEY}&hash=${hash}&limit=100&nameStartsWith=${selectedLetter}`)
+      const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?ts=${ts}&apikey=${MARVEL_API_PUBLIC_KEY}&hash=${hash}&limit=100&nameStartsWith=${selectedLetter}`)
       const characters = data.data.results
       dispatch(gotInitialCharactersByLetter(characters))
       dispatch(toggleLoading())

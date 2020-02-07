@@ -91,7 +91,7 @@ export const fetchCharacterInfo =(id)=> {
   return async(dispatch) => {
     try {
       dispatch(toggleLoading())
-      const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=${MARVEL_API_PUBLIC_KEY}`)
+      const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}?ts=${ts}&apikey=${MARVEL_API_PUBLIC_KEY}&hash=${hash}`)
       const info = data.data.results[0];
       dispatch(gotCharacterInfo(info))
       dispatch(toggleLoading())
