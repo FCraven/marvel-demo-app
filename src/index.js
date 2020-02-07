@@ -8,9 +8,9 @@ import { Provider } from 'react-redux'
 import store from './redux'
 import { history } from './redux/store'
 import 'normalize.css'
-import 'dotenv/config'
+import dotenv from 'dotenv'
 
-
+dotenv.config()
 
 ReactDOM.render(
     <Provider store={store}>
