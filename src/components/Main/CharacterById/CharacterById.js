@@ -53,8 +53,6 @@ const CharacterById =(props)=> {
     )
   })
 
-
-  console.log(`process.env--> `, process.env)
   return (
       <section id="character-by-id-container" style={style}>
        <div id='by-id-opacity-layer'>
