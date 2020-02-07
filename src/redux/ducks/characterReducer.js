@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { MARVEL_API_PUBLIC_KEY } from '../../secrets'
+// import { MARVEL_API_PUBLIC_KEY } from '../../secrets'
 import { toggleLoading } from './settingsReducer'
 export const initialState = {
   selectedLetter: 'a',
@@ -7,7 +7,7 @@ export const initialState = {
   characters: [],
 }
 
-
+const { MARVEL_API_PUBLIC_KEY } = process.env
 
 //Actions
 export const FETCH_INITIAL_CHARACTERS_BY_LETTER = 'FETCH_INITIAL_CHARACTERS_BY_LETTER'
