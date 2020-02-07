@@ -1,12 +1,11 @@
 import axios from 'axios'
-// import { MARVEL_API_PUBLIC_KEY } from '../../secrets'
 import { toggleLoading } from './settingsReducer'
-// import runtimeEnv from '@mars/heroku-js-runtime-env'
-// const env = runtimeEnv()
+import CryptoJS from 'crypto-js'
 
 export const MARVEL_API_PRIVATE_KEY = process.env.REACT_APP_MARVEL_API_PRIVATE_KEY
 export const MARVEL_API_PUBLIC_KEY = process.env.REACT_APP_MARVEL_API_PUBLIC_KEY
 export const ts = Date.now()
+export const hash = CryptoJS.MD5(ts+ MARVEL_API_PRIVATE_KEY + MARVEL_API_PUBLIC_KEY).toString()
 
 
 

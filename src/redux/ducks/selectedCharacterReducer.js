@@ -1,11 +1,13 @@
-//imports
 import axios from 'axios'
-// import { MARVEL_API_PUBLIC_KEY } from '../../secrets'
 import { toggleLoading } from './settingsReducer'
-// import runtimeEnv from '@mars/heroku-js-runtime-env'
-// const env = runtimeEnv()
+import CryptoJS from 'crypto-js'
 
+export const MARVEL_API_PRIVATE_KEY = process.env.REACT_APP_MARVEL_API_PRIVATE_KEY
 export const MARVEL_API_PUBLIC_KEY = process.env.REACT_APP_MARVEL_API_PUBLIC_KEY
+export const ts = Date.now()
+export const hash = CryptoJS.MD5(ts+MARVEL_API_PRIVATE_KEY+MARVEL_API_PUBLIC_KEY).toString()
+
+
 
 //initalState
 export const initialState = {
@@ -102,7 +104,7 @@ export const fetchCharacterInfo =(id)=> {
 export const fetchCharacterComics =(id)=>{
   return async(dispatch)=> {
     try {
-      const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}/comics?apikey=${MARVEL_API_PUBLIC_KEY}`)
+      const { data } = await axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}/comics?ts=${ts}&apikey=${MARVEL_API_PUBLIC_KEY}&hash=${hash}`)
       const results = data.data
       const comicsArr = results.results;
       dispatch(gotCharacterComics(comicsArr))

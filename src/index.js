@@ -9,7 +9,6 @@ import store from './redux'
 import { history } from './redux/store'
 import 'normalize.css'
 
-console.log(`DATEDOTNOW-->`, Date.now())
 ReactDOM.render(
     <Provider store={store}>
       <ConnectedRouter history={history}>
