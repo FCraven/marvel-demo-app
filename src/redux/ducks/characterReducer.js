@@ -1,12 +1,17 @@
 import axios from 'axios'
 // import { MARVEL_API_PUBLIC_KEY } from '../../secrets'
 import { toggleLoading } from './settingsReducer'
+import runtimeEnv from '@mars/heroku-js-runtime-env'
+
+const env = runtimeEnv()
+const MARVEL_API_PUBLIC_KEY = env.MARVEL_API_PUBLIC_KEY
+
+
 export const initialState = {
   selectedLetter: 'a',
   characterSearch: '',
   characters: [],
 }
-
 const MARVEL_API_PUBLIC_KEY = process.env.MARVEL_API_PUBLIC_KEY
 
 //Actions
