@@ -2,7 +2,7 @@ import React from 'react'
 import './Home.css'
 
 const Home =(props)=> {
-console.log(`PROCESS.ENV.KEY-->`, process.env.MARVEL_API_PUBLIC_KEY)
+console.log(`PROCESS.ENV-->`, process.env)
   return (
     <section id='home-component' className='flex-container-center'>
       <div id='home-title' className='flex-container-center'>
