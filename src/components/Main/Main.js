@@ -5,6 +5,8 @@ import Characters from './Characters'
 import CharacterById from './CharacterById'
 import Comics from './Comics'
 import ComicsById from './ComicsById'
+import Events from './Events'
+import EventsById from './EventsById'
 import Series from './Series'
 import SeriesById from './SeriesById'
 import { Switch, Route } from 'react-router-dom'
@@ -20,6 +22,8 @@ const Main =(props)=> {
           <Route path='/series' component={Series} />
           <Route path='/comics/:id' component={ComicsById} />
           <Route path='/comics' component={Comics} />
+          <Route path='/events/:id' component={EventsById} />
+          <Route path='/events' component={Events} />
         </Switch>
     </section>
   )
