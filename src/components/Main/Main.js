@@ -3,6 +3,8 @@ import './Main.css'
 import Home from './Home'
 import Characters from './Characters'
 import CharacterById from './CharacterById'
+import Series from './Series'
+import SeriesById from './SeriesById'
 import { Switch, Route } from 'react-router-dom'
 
 const Main =(props)=> {
@@ -12,6 +14,8 @@ const Main =(props)=> {
           <Route exact path='/' component={Home} />
           <Route path='/characters/:id' component={CharacterById} />
           <Route path='/characters' component={Characters} />
+          <Route path='/series/:id' component={SeriesById} />
+          <Route path='/series' component={Series} />
         </Switch>
     </section>
   )
