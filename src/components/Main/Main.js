@@ -8,7 +8,7 @@ import ComicsById from './ComicsById'
 import CreatorsById from './CreatorsById'
 import Creators from './Creators'
 import Events from './Events'
-import EventsById from './EventsById'
+import EventsById from './EventById'
 import Series from './Series'
 import SeriesById from './SeriesById'
 import Stories from './Stories'
@@ -20,6 +20,7 @@ import { fetchSeries } from '../../redux/ducks/seriesReducer'
 import { fetchCreators } from '../../redux/ducks/creatorsReducer'
 import { fetchStories } from '../../redux/ducks/storiesReducer'
 import { fetchComics } from '../../redux/ducks/comicsReducer'
+import { toggleLoading } from '../../redux/ducks/settingsReducer'
 
 class Main extends Component {
   constructor(props) {
@@ -28,12 +29,13 @@ class Main extends Component {
 
   componentDidMount() {
     //dispatches in here
+    this.props.toggleLoading()
     this.props.fetchEvents()
     this.props.fetchSeries()
     this.props.fetchCreators()
     this.props.fetchStories()
     this.props.fetchComics()
-
+    this.props.toggleLoading()
   }
 
   render() {
@@ -60,7 +62,6 @@ class Main extends Component {
 }
 
 const mapState = (state) => {
-  console.log(`STATE!!!!!!!!--> `, state)
   return {
     ...state
   }
@@ -71,7 +72,8 @@ const mapDispatch = {
   fetchSeries,
   fetchCreators,
   fetchStories,
-  fetchComics
+  fetchComics,
+  toggleLoading
 }
 
 export default connect(mapState, mapDispatch)(Main);

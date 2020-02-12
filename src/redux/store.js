@@ -1,5 +1,17 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
-import { characterReducer, comicsReducer, creatorsReducer, eventsReducer, selectedCharacterReducer, settingsReducer, seriesReducer, storiesReducer } from './ducks'
+import {  characterReducer,
+          comicsReducer,
+          creatorsReducer,
+          eventsReducer,
+          seriesReducer,
+          storiesReducer,
+          selectedCharacterReducer,
+          selectedComicReducer,
+          selectedCreatorReducer,
+          selectedEventReducer,
+          selectedSeriesReducer,
+          selectedStoryReducer,
+          settingsReducer } from './ducks'
 import { createBrowserHistory } from 'history'
 import { connectRouter, routerMiddleware } from 'connected-react-router'
 import thunkMiddleware from 'redux-thunk'
@@ -7,14 +19,19 @@ import { createLogger } from 'redux-logger'
 
 
 const createRootReducer = (history) => combineReducers({
-  router: connectRouter(history),
   characters: characterReducer,
   comics: comicsReducer,
   creators: creatorsReducer,
   events: eventsReducer,
-  selectedCharacter: selectedCharacterReducer,
   series: seriesReducer,
   stories: storiesReducer,
+  router: connectRouter(history),
+  selectedCharacter: selectedCharacterReducer,
+  selectedComic: selectedComicReducer,
+  selectedCreator: selectedCreatorReducer,
+  selectedEvent: selectedEventReducer,
+  selectedSeries: selectedSeriesReducer,
+  selectedStory: selectedStoryReducer,
   settings: settingsReducer,
 })
 
@@ -32,18 +49,3 @@ const store = createStore(
 )
 
 export default store;
-
-//fallback
-// const store = createStore(
-//   combineReducers(
-//     {
-//       characters: characterReducer,
-//       selectedCharacter: selectedCharacterReducer,
-//       settings: settingsReducer
-//     }
-//   ),
-//   applyMiddleware(
-//     thunkMiddleware,
-//     createLogger()
-//   )
-// )
