@@ -14,19 +14,24 @@ class EventById extends Component {
   }
 
   render() {
-    const { title, description } = this.props
+    const { title, description, thumbnail } = this.props
+
     console.log(`EVTBYIDPROPS--->`, this.props)
     return (
-      <div>
-        <h1>{title}</h1>
-        <p>{description}</p>
-     
+      <div style={{display: 'inline-flex'}}>
+        <img src={`${thumbnail.path}/landscape_incredible.${thumbnail.extension}`} />
+        <div>
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </div>
+        <div>Map out Character Tiles here</div>
+        <div>Map out Comics Tile here</div>
       </div>
     )
   }
 }
 
-const mapState =(state)=> {
+const mapState = (state) => {
   return {
     ...state.selectedEvent
   }
