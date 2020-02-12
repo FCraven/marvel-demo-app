@@ -9,7 +9,7 @@ const CreatorsById =(props)=> {
     )
 }
 
-const mapStateToProps = (state) => ({
+const mapState = (state) => ({
   ...state
 })
 

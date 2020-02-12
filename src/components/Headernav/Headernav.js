@@ -1,49 +1,72 @@
 import React from 'react'
 import './Headernav.css'
-import HeadernavLink from './HeadernavLink'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
-const Headernav =(props)=> {
+
+const Headernav = (props) => {
+
+  const activeStyle = {
+    transform: 'scale(1.1)',
+    background: 'rgba(234, 35, 42, 0.5)',
+    color: 'white',
+    boxShadow: '0px 5px 10px black',
+    border: '1px solid cyan'
+  }
+
+  const activeClass =  {
+    transform: 'scale(1.1)',
+    background: 'rgba(234, 35, 42, 0.5)',
+    color: 'white',
+    boxShadow: '0px 5px 10px black',
+    border: '1px solid cyan'
+  }
+
   const navs = [
     {
       path: '/characters',
-      name: 'Characters'
+      name: 'Characters',
     },
     {
       path: '/comics',
-      name: 'Comics'
+      name: 'Comics',
     },
     {
       path: '/events',
-      name: 'Events'
+      name: 'Events',
+
     },
     {
       path: '/stories',
-      name: 'Stories'
+      name: 'Stories',
+
     },
     {
       path: '/series',
-      name: 'Series'
+      name: 'Series',
     },
     {
       path: '/creators',
-      name: 'Creators'
+      name: 'Creators',
     },
   ]
   return (
     <nav id='headernav'>
       <ul id='headernav-navlist'>
-      {/* Home Link */}
+        {/* Home Link */}
         <Link to='/'>
-          <FontAwesomeIcon id='home-icon' icon={faHome} size='lg' style={{color: '#EA2328'}}/>
+          <FontAwesomeIcon id='home-icon' icon={faHome} size='lg' style={{ color: '#EA2328' }} />
         </Link>
-
-      {/* NavLinks */}
-        {navs.map((el,idx) => <HeadernavLink key={idx} path={el.path} name={el.name} />)}
-
-
+        {/* NavLinks */}
+        {navs.map((el, idx) =>
+          <NavLink
+              key={idx}
+              to={el.path}
+              className='headernav-link'
+              activeClassName={activeClass}
+              activeStyle={activeStyle}>{el.name}</NavLink>
+        )}
       </ul>
     </nav>
   )

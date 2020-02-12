@@ -1,16 +1,21 @@
-import {combineReducers, createStore, applyMiddleware, compose} from 'redux'
-import { characterReducer, selectedCharacterReducer, settingsReducer } from './ducks'
+import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
+import { characterReducer, comicsReducer, creatorsReducer, eventsReducer, selectedCharacterReducer, settingsReducer, seriesReducer, storiesReducer } from './ducks'
 import { createBrowserHistory } from 'history'
 import { connectRouter, routerMiddleware } from 'connected-react-router'
 import thunkMiddleware from 'redux-thunk'
-import {createLogger} from 'redux-logger'
+import { createLogger } from 'redux-logger'
 
 
-const createRootReducer =(history)=> combineReducers({
+const createRootReducer = (history) => combineReducers({
   router: connectRouter(history),
   characters: characterReducer,
+  comics: comicsReducer,
+  creators: creatorsReducer,
+  events: eventsReducer,
   selectedCharacter: selectedCharacterReducer,
-  settings: settingsReducer
+  series: seriesReducer,
+  stories: storiesReducer,
+  settings: settingsReducer,
 })
 
 export const history = createBrowserHistory()
