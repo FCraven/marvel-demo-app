@@ -44,7 +44,6 @@ class EventById extends Component {
         <div style={imgTileStyle}>
           <div style={opacityLayer}>
            <h3>{title}</h3>
-
           </div>
         </div>
         <div>Map out Character Tiles here</div>
