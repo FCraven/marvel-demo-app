@@ -1,0 +1,19 @@
+#event-by-id-container {
+  height: 90%;
+  width: 80%;
+  
+}
+
+#event-by-id-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 3px solid hotpink;
+}
+
+#event-by-id-text-container{
+  border: 3px solid blue;
+  position: relative;
+
+}
+
