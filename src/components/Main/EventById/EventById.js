@@ -31,6 +31,8 @@ class EventById extends Component {
         height: '100%',
         width: '100%',
         display: 'flex',
+        alignItems: 'flex-end',
+        justifyContent: 'flex-end',
         backgroundColor: 'black',
         background: 'radial-gradient(circle, rgba(0,0,0,0.4192051820728291) 0%, rgba(0,0,0,0.7525385154061625) 43%, rgba(0,0,0,0.9037990196078431) 90%, rgba(0,0,0,0.9430147058823529) 100%)',
         overflowX: 'auto',
@@ -43,12 +45,11 @@ class EventById extends Component {
       <article id='event-by-id-container'>
         <div style={imgTileStyle}>
           <div style={opacityLayer}>
-           <h3>{title}</h3>
+           <h3 id='event-by-id-text'>EVENT:  {title}</h3>
           </div>
         </div>
         <div>Map out Character Tiles here</div>
         <div>Map out Comics Tile here</div>
-
       </article>
 
     )

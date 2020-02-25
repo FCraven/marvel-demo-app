@@ -1,19 +1,15 @@
 #event-by-id-container {
-  height: 90%;
-  width: 80%;
-  
-}
-
-#event-by-id-img {
-  position: relative;
-  width: 100%;
   height: 100%;
-  border: 3px solid hotpink;
+  width: 90%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
 }
 
-#event-by-id-text-container{
+#event-by-id-text {
   border: 3px solid blue;
   position: relative;
+  padding: 0 10%;
 
 }
 

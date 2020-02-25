@@ -44,7 +44,8 @@ const store = createStore(
       routerMiddleware(history),
       thunkMiddleware,
       createLogger()
-    )
+    ),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 )
 
