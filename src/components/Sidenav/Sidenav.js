@@ -6,6 +6,8 @@ import CharacterSearchBar from './CharacterSearchBar'
 import ByIdSidenav from './ByIdSidenav'
 
 const Sidenav =(props)=> {
+  // add button to open/ close
+
   return (
     <aside id='sidenav' className='flex-container-center'>
         <Switch>

@@ -12,11 +12,40 @@
   border-radius: 1em;
 }
 
+#hero-component {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.arrows {
+  margin: 2%;
+}
+
 #event-by-id-image {
   position: relative;
   width: 75%;
-  border-radius: inherit;
+  border-radius: 1em;
   border: .5px solid slateblue;
   box-shadow: 0px 5px 20px 1px black;
-  /* top: -10px; */
+  top: -2%;
+}
+
+#event-by-id-buttons {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  border: 5px solid green;
+  width: 75%;
+}
+
+.event-by-id-button {
+  height: 3em;
+  padding: 1em;
+  background-color: hotpink;
 }
