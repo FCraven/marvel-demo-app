@@ -23,9 +23,6 @@ import { fetchComics } from '../../redux/ducks/comicsReducer'
 import { toggleLoading } from '../../redux/ducks/settingsReducer'
 
 class Main extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   componentDidMount() {
     //dispatches in here

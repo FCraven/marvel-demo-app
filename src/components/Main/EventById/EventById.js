@@ -7,9 +7,6 @@ import { faCaretRight, faCaretLeft } from '@fortawesome/free-solid-svg-icons'
 
 
 class EventById extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   componentDidMount() {
     const id = this.props.match.params.id
@@ -19,16 +16,16 @@ class EventById extends Component {
   render() {
     const { title, description, thumbnail } = this.props
 
-    const imgTileStyle = {
-      position: 'relative',
-      display: 'flex',
-      backgroundImage: `url(${thumbnail.path}/landscape_incredible.${thumbnail.extension})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: '100% 100%',
-      width: '100%',
-      maxWidth: '100%',
-      height: '100%'
-    }
+    // const imgTileStyle = {
+    //   position: 'relative',
+    //   display: 'flex',
+    //   backgroundImage: `url(${thumbnail.path}/landscape_incredible.${thumbnail.extension})`,
+    //   backgroundRepeat: 'no-repeat',
+    //   backgroundSize: '100% 100%',
+    //   width: '100%',
+    //   maxWidth: '100%',
+    //   height: '100%'
+    // }
 
     const opacityLayer = {
       // height: '100%',

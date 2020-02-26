@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { toggleLoading } from './settingsReducer'
 import MD5 from 'crypto-js/md5'
 
 export const MARVEL_API_PRIVATE_KEY = process.env.REACT_APP_MARVEL_API_PRIVATE_KEY

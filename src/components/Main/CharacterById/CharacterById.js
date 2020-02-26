@@ -23,6 +23,7 @@ const CharacterById =(props)=> {
       <Link to={`/comics/${el.id}`}
             className='comic-tile text-decoration-none row-wrap'>
           <img  src={`${el.thumbnail.path}/portrait_medium.${el.thumbnail.extension}`}
+                alt='issue cover'
                 className='responsive-image'/>
           <h3 className='row-wrap'>{el.title}</h3>
       </Link>
@@ -35,6 +36,7 @@ const CharacterById =(props)=> {
       <Link to={`/events/${el.id}`}
             className='comic-tile text-decoration-none row-wrap'>
           <img src={`${el.thumbnail.path}/portrait_medium.${el.thumbnail.extension}`}
+              alt='event profile'
               className='responsive-image'/>
           <h3>{el.title}</h3>
       </Link>
@@ -47,7 +49,8 @@ const CharacterById =(props)=> {
        <Link to={`/series/${el.id}`}
             className='comic-tile text-decoration-none row-wrap'>
           <img src={`${el.thumbnail.path}/portrait_medium.${el.thumbnail.extension}`}
-              className='responsive-image' />
+              className='responsive-image'
+              alt='series profile' />
           <h3>{el.title}</h3>
       </Link>
     )

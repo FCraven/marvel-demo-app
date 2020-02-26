@@ -1,12 +1,12 @@
 #headernav {
-  position: sticky;
+  position: relative;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 255, 0.192);
-  height: 10vh;
-  width: 100vw;
+  height: 10%;
+  width: 100%;
   box-shadow: 0px 5px 15px black;
   z-index: 8;
 }
@@ -15,10 +15,9 @@
   display: flex;
   flex-flow: row wrap;
   position: relative;
-  margin: 0;
   height: 100%;
   width: 100%;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   flex-flow: row wrap;
   list-style: none;
@@ -27,15 +26,16 @@
 
 .headernav-link {
   display: flex;
-  justify-content: space-between;
+  position: relative;
+  justify-content: center;
   align-items: center;
   flex-shrink: 1;
   position: relative;
-  height: 50%;
+  height: 33%;
   font-size: 1.5vw;
   font-weight: bold;
   text-shadow: 1px 1px midnightblue;
-  padding: .3em;
+  padding: 1%;
   background-color:#EA2328;
   color: oldlace;
   border-radius: .5vw;

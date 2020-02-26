@@ -1,8 +1,10 @@
 import React from 'react'
 import './Headernav.css'
-import { faHome } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link, NavLink } from 'react-router-dom'
+import { toggleSearch } from '../../redux/ducks/settingsReducer'
+import { connect } from 'react-redux'
 
 
 const Headernav = (props) => {
@@ -15,13 +17,6 @@ const Headernav = (props) => {
     border: '1px solid cyan'
   }
 
-  const activeClass =  {
-    transform: 'scale(1.1)',
-    background: 'rgba(234, 35, 42, 0.5)',
-    color: 'white',
-    boxShadow: '0px 5px 10px black',
-    border: '1px solid cyan'
-  }
 
   const navs = [
     {
@@ -54,22 +49,32 @@ const Headernav = (props) => {
   return (
     <nav id='headernav'>
       <ul id='headernav-navlist'>
-        {/* Home Link */}
         <Link to='/'>
-          <FontAwesomeIcon id='home-icon' icon={faHome} size='lg' style={{ color: '#EA2328' }} />
+          <FontAwesomeIcon id='home-icon' icon={faHome} size='lg' style={{ color: '#EA2328' }}
+            className='headernav-icon' />
         </Link>
+        {/* Home Link */}
         {/* NavLinks */}
         {navs.map((el, idx) =>
           <NavLink
-              key={idx}
-              to={el.path}
-              className='headernav-link'
-              activeClassName={activeClass}
-              activeStyle={activeStyle}>{el.name}</NavLink>
+            key={idx}
+            to={el.path}
+            className='headernav-link'
+            activeClassName='transform: scale(1.1),background: rgba(234, 35, 42, 0.5),color: white,boxShadow: 0px 5px 10px black,border: 1px solid cyan'
+            activeStyle={activeStyle}>{el.name}</NavLink>
         )}
+        <Link to='/'>
+          <FontAwesomeIcon id='search-icon' icon={faSearch} size='lg'
+            className='headernav-icon' style={{ color: '#EA2328' }}
+            onClick={props.toggleSearch} />
+        </Link>
       </ul>
     </nav>
   )
 }
 
-export default Headernav;
+const mapDispatch = {
+  toggleSearch
+}
+
+export default connect(null, mapDispatch)(Headernav);

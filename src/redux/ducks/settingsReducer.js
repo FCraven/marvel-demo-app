@@ -1,12 +1,20 @@
 export const initialState= {
-  isLoading: false
+  isLoading: false,
+  isSearchOpen: false
 }
 
 export const TOGGLE_LOADING = 'TOGGLE_LOADING'
+export const TOGGLE_SEARCH = 'TOGGLE_SEARCH'
 
 export const toggleLoading =()=> {
   return {
     type: TOGGLE_LOADING
+  }
+}
+
+export const toggleSearch =()=> {
+  return {
+    type: TOGGLE_SEARCH
   }
 }
 
@@ -16,6 +24,12 @@ const settingsReducer =(state = initialState, action)=> {
       return Object.assign({}, state, {
         isLoading: !state.isLoading
       })
+
+    case TOGGLE_SEARCH:
+      return Object.assign({}, state, {
+        isSearchOpen: !state.isSearchOpen
+      })
+      
     default:
       return state;
   }
