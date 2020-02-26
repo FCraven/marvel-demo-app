@@ -8,8 +8,8 @@ const Content = ({ isSearchOpen }) => {
 
   return (
     <section id='content'>
-      {isSearchOpen ? <Sidenav /> : null}
       <Main />
+      {isSearchOpen ? <Sidenav /> : null}
     </section>
   )
 }

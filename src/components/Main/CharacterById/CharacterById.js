@@ -21,6 +21,7 @@ const CharacterById =(props)=> {
   const comicsMap = comics.map((el,idx) => {
     return (
       <Link to={`/comics/${el.id}`}
+            key={el.title}
             className='comic-tile text-decoration-none row-wrap'>
           <img  src={`${el.thumbnail.path}/portrait_medium.${el.thumbnail.extension}`}
                 alt='issue cover'

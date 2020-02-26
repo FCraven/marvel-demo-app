@@ -21,18 +21,23 @@ import { fetchCreators } from '../../redux/ducks/creatorsReducer'
 import { fetchStories } from '../../redux/ducks/storiesReducer'
 import { fetchComics } from '../../redux/ducks/comicsReducer'
 import { toggleLoading } from '../../redux/ducks/settingsReducer'
+import { fetchInitialCharactersByLetter } from '../../redux/ducks/characterReducer'
 
 class Main extends Component {
 
-  componentDidMount() {
-    //dispatches in here
-    this.props.toggleLoading()
-    this.props.fetchEvents()
-    this.props.fetchSeries()
-    this.props.fetchCreators()
-    this.props.fetchStories()
-    this.props.fetchComics()
-    this.props.toggleLoading()
+  async componentDidMount() {
+    try{
+      this.props.toggleLoading()
+      this.props.fetchInitialCharactersByLetter()
+      this.props.fetchEvents()
+      this.props.fetchSeries()
+      this.props.fetchCreators()
+      this.props.fetchStories()
+      this.props.fetchComics()
+      this.props.toggleLoading()
+    } catch(err) {
+      console.log(err)
+    }
   }
 
   render() {
@@ -65,6 +70,7 @@ const mapState = (state) => {
 }
 
 const mapDispatch = {
+  fetchInitialCharactersByLetter,
   fetchEvents,
   fetchSeries,
   fetchCreators,

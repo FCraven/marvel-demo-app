@@ -20,14 +20,6 @@ class CharacterSearchBar extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  async componentDidMount() {
-    try {
-      this.props.fetchInitialCharactersByLetter()
-    } catch(err) {
-      console.log(err)
-    }
-  }
-
   async handleChange(evt) {
     const name = evt.target.name;
     const value = evt.target.value;

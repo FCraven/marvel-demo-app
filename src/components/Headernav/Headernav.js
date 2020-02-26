@@ -63,11 +63,9 @@ const Headernav = (props) => {
             activeClassName='transform: scale(1.1),background: rgba(234, 35, 42, 0.5),color: white,boxShadow: 0px 5px 10px black,border: 1px solid cyan'
             activeStyle={activeStyle}>{el.name}</NavLink>
         )}
-        <Link to='/'>
           <FontAwesomeIcon id='search-icon' icon={faSearch} size='lg'
             className='headernav-icon' style={{ color: '#EA2328' }}
             onClick={props.toggleSearch} />
-        </Link>
       </ul>
     </nav>
   )
