@@ -5,7 +5,8 @@
   text-align: center;
   height: 100vh;
   width: 100vw;
-  background-color: rgb(54, 60, 66)
+  background-color: rgb(54, 60, 66);
+  overflow: hidden;
 }
 
 .flex-container {
