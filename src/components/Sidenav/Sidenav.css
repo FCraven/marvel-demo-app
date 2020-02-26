@@ -15,8 +15,9 @@
   }
 
   #close-icon {
-    align-self: flex-start;
+    align-self: baseline;
     padding-top: 3px;
+    margin-right: inherit;
   }
 
 }

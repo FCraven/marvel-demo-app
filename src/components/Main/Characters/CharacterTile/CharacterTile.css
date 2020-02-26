@@ -44,3 +44,23 @@
   box-shadow: 0px 8px 16px 0 rgba(226, 41, 41, 0.781);
 }
 
+@media only screen and (max-width: 600px) {
+  .character-tile-container {
+    width: 95%;
+    height: 25%;
+    flex-flow: row nowrap;
+
+  }
+
+  .character-tile-img {
+    width: 33%;
+    height: 100%;
+  }
+
+  .character-tile-text {
+    width: auto;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: space-between;
+  }
+}
