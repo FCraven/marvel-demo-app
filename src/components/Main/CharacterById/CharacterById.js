@@ -35,6 +35,7 @@ const CharacterById =(props)=> {
         //create Navlink to  /events/:id
     return (
       <Link to={`/events/${el.id}`}
+            key={el.title}
             className='comic-tile text-decoration-none row-wrap'>
           <img src={`${el.thumbnail.path}/portrait_medium.${el.thumbnail.extension}`}
               alt='event profile'
@@ -48,6 +49,7 @@ const CharacterById =(props)=> {
     //create Navlink to series /series/:id
     return (
        <Link to={`/series/${el.id}`}
+            key={el.title}
             className='comic-tile text-decoration-none row-wrap'>
           <img src={`${el.thumbnail.path}/portrait_medium.${el.thumbnail.extension}`}
               className='responsive-image'
