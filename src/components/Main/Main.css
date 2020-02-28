@@ -8,6 +8,8 @@
   width: 100%;
   z-index: 0;
   overflow: auto;
+  background: radial-gradient(ellipse at top, #EA2328, transparent),
+  radial-gradient(ellipse at bottom, #2E3869, transparent);
 }
 
 
