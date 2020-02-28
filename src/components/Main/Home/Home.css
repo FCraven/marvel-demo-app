@@ -24,7 +24,10 @@
   width: 100%;
   background: radial-gradient(circle, #cc10105d 40%,#010851ce);
   content: '';
+  display: -webkit-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
 }

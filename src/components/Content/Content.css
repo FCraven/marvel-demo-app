@@ -1,13 +1,18 @@
 #content {
+  display: -webkit-box;
   display: flex;
-  flex-flow: row nowrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-flow: row nowrap;
   height: 80%;
   width: 100%;
 }
 
 @media only screen and (max-width: 600px) {
   #content {
-    flex-flow: column-reverse nowrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+            flex-flow: column-reverse nowrap;
 
   }
 }

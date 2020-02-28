@@ -1,17 +1,24 @@
 .character-tile-container {
+  display: -webkit-box;
   display: flex;
   width: 22%;
   height: auto;
 }
 
 .character-tile {
+  display: -webkit-box;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-flow: column wrap;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-flow: column wrap;
   width: 100%;
   /* overflow: auto; */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   margin: 1vw;
   color: rgba(255, 255, 255, 0.993);
@@ -19,20 +26,29 @@
 
 
 .character-tile-img {
+  display: -webkit-box;
   display: flex;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-flex: 1;
+          flex: 1;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
   width: 100%;
   position: relative;
 }
 
 .character-tile-text {
   position: relative;
+  display: -webkit-box;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
-  align-items: flex-end;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-flow: row wrap;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+          align-items: flex-end;
   /* flex-flow: column wrap; */
   width: 100%;
   height: auto;
@@ -48,7 +64,9 @@
   .character-tile-container {
     width: 95%;
     height: 25%;
-    flex-flow: row nowrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-flow: row nowrap;
 
   }
 
@@ -59,8 +77,12 @@
 
   .character-tile-text {
     width: auto;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-flow: column nowrap;
+    -webkit-box-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: space-between;
+            align-items: space-between;
   }
 }

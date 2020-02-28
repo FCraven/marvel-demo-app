@@ -1,9 +1,15 @@
 #sidenav {
+  display: -webkit-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column wrap;
-  flex: 1;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-flow: column wrap;
+  -webkit-box-flex: 1;
+          flex: 1;
   background-color: #cccccc;
   box-shadow: 10px 5px 20px black;
   z-index: 2;
@@ -11,7 +17,9 @@
 
 @media only screen and (max-width: 600px) {
   #sidenav {
-    flex-flow: row nowrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-flow: row nowrap;
   }
 
   #close-icon {
@@ -24,7 +32,9 @@
 
 @media only screen and (orientation: landscape) {
   #sidenav {
-    flex-flow: column-reverse nowrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+            flex-flow: column-reverse nowrap;
   }
 
   #close-icon {

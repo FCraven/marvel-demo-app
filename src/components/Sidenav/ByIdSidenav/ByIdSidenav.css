@@ -1,9 +1,14 @@
 #by-id-sidenav-container{
+  display: -webkit-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
   overflow: auto;
-  flex-flow: column nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-flow: column nowrap;
   position: relative;
   height: 100%;
   width: 100%;
@@ -12,14 +17,20 @@
 }
 
 #by-id-info {
+  display: -webkit-box;
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+          align-items: center;
   color: white;
 }
 
 #by-id-sidenav-img {
+  display: -webkit-box;
   display: flex;
   position: relative;
   max-width: 75%;
@@ -28,40 +39,58 @@
 }
 
 #by-id-sidenav-text-container {
+  display: -webkit-box;
   display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-flow: column wrap;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
   height: 100%;
   width: 80%;
 }
 
 #by-id-sidenav-text {
+  display: -webkit-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
 }
 
 @media only screen and (max-width: 600px) {
   #by-id-sidenav-container {
-    flex-flow: row nowrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-flow: row nowrap;
     max-height: 20vh;
     overflow: hidden;
   }
 
   #by-id-sidenav-text-container {
+    display: -webkit-box;
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-flow: column nowrap;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
     overflow: auto;
     height: 100%;
   }
 
   #by-id-sidenav-text {
+    display: -webkit-box;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    -webkit-box-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+            align-items: center;
   }
 
 }
