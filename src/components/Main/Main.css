@@ -1,8 +1,12 @@
 #main {
+  display: -webkit-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 4;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-flex: 4;
+          flex: 4;
   position: relative;
   height: 100%;
   width: 100%;
